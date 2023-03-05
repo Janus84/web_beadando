@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <title>Mókus oldal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/urlap.css">
+</head>
+<body>
+<header>
+  <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
+  <h1>Mókus oldal</h1>
+</header>
+<nav>
+  <ul>
+    <li><a href="index.html">Főoldal</a></li>
+    <li><a href="mokusokrol.html">Mókusokról</a></li>
+    <li><a href="eletmod.html">Életmód</a></li>
+    <li><a href="galeria.html">Galéria</a></li>
+    <li><a href="kapcsolat.html">Kapcsolat</a></li>
+  </ul>
+</nav>
+<main>
+  <form>
+    <label for="name">Név:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">E-mail cím:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Üzenet:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <label for="rating">Mennyire szereted a mókusokat? (1-5)</label>
+    <input type="range" id="rating" name="rating" min="1" max="5" step="1">
+
+    <label for="attachment">Melléklet:</label>
+    <input type="checkbox" id="attachment" name="attachment" onchange="toggleAttachment()">
+
+    <div id="attachment-section" style="display: none;">
+      <label for="file">Kép vagy videó link:</label>
+      <input type="file" id="file" name="file">
+    </div>
+
+    <input type="submit" value="Küldés">
+  </form>
+
+  <script>
+    function toggleAttachment() {
+      var attachmentSection = document.getElementById("attachment-section");
+      if (attachmentSection.style.display === "none") {
+        attachmentSection.style.display = "block";
+      } else {
+        attachmentSection.style.display = "none";
+      }
+    }
+  </script>
+
+</main>
+<footer>
+  © 2023 Mókus oldal
+</footer>
+</body>
+</html>
