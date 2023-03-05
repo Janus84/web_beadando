@@ -4,13 +4,15 @@
     <title>Életmód</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="media/icon.png" type="image/x-icon">
+    <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
 <header>
     <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
     <h1>Mókus oldal</h1>
 </header>
-<nav>
+<nav class="navbar">
     <ul>
         <li><a href="index.html">Főoldal</a></li>
         <li><a href="mokusokrol.html">Mókusokról</a></li>
@@ -44,7 +46,12 @@
     </figure>
     <h2 class="h2small">Hogyan építik fészkeiket?</h2>
     <p>A mókusok általában fákban építik fészkeiket. Az épületek egy kis üregből állnak, amelyet a mókusok maguk készítenek a fák kérgében, és mohával, levelekkel és fűvel díszítik.</p>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.add('show');
+        });
+    </script>
 </main>
 <footer>
     © 2023 Mókus oldal

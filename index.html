@@ -7,13 +7,15 @@
     <meta name="description" content="Oldal a mókusok népszerűsítésére"/>
     <meta name="kaywords" content="mókus, igazságtalanság, cuki"/>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="media/icon.png" type="image/x-icon">
+    <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
 <header>
     <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
     <h1>Mókus oldal</h1>
 </header>
-<nav>
+<nav class="navbar">
     <ul>
         <li><a href="index.html">Főoldal</a></li>
         <li><a href="mokusokrol.html">Mókusokról</a></li>
@@ -69,6 +71,13 @@
     <section>
         <a class="support" href="urlap.html">Segíts a mókusokon és kattints!</a>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.add('show');
+        });
+    </script>
 
 
 </main>

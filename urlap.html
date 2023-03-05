@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/urlap.css">
+  <link rel="shortcut icon" href="media/icon.png" type="image/x-icon">
+  <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
 <header>
   <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
   <h1>Mókus oldal</h1>
 </header>
-<nav>
+<nav class="navbar">
   <ul>
     <li><a href="index.html">Főoldal</a></li>
     <li><a href="mokusokrol.html">Mókusokról</a></li>
@@ -54,6 +56,12 @@
         attachmentSection.style.display = "none";
       }
     }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbar = document.querySelector('.navbar');
+      navbar.classList.add('show');
+    });
   </script>
 
 </main>

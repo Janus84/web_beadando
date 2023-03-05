@@ -4,13 +4,15 @@
     <title>Kapcsolat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="media/icon.png" type="image/x-icon">
+    <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
 <header>
     <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
     <h1>Mókus oldal</h1>
 </header>
-<nav>
+<nav class="navbar">
     <ul>
         <li><a href="index.html">Főoldal</a></li>
         <li><a href="mokusokrol.html">Mókusokról</a></li>
@@ -20,7 +22,57 @@
     </ul>
 </nav>
 <main>
+    <h2>Az alkotókról</h2>
 
+    <table class="table">
+        <thead>
+        <tr>
+            <th colspan="3">A mókus oldal alkotói</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Név:</td>
+            <td>Kovács Imre</td>
+            <td>Molnár János</td>
+        </tr>
+        <tr>
+            <td>Mókusszakértési Szint:</td>
+            <td>100</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>Mókus Önkormányzati (MÖK) Pozíció:</td>
+            <td>Helyettes Államtitkár</td>
+            <td>Mókusügyi Miniszter</td>
+        </tr>
+        <tr>
+            <td>Bankszámlaszám (ha esetleg támogatnál minket):</td>
+            <td>122333-44445-5555</td>
+            <td>6666-66777-777788</td>
+        </tr>
+        <tr>
+            <td>Email-cím:</td>
+            <td>hyba28@gmail.com</td>
+            <td>molnarjanos84@gmail.com</td>
+        </tr>
+        <tr>
+            <td>Mókusügyi Önkormányzati (MÖK) ID:</td>
+            <td>2</td>
+            <td>1</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.add('show');
+        });
+    </script>
 </main>
 <footer>
     © 2023 Mókus oldal

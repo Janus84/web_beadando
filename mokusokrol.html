@@ -4,13 +4,15 @@
     <title>Mókusokról</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="media/icon.png" type="image/x-icon">
+    <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
 <header>
     <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
     <h1>Mókus oldal</h1>
 </header>
-<nav>
+<nav class="navbar">
     <ul>
         <li><a href="index.html">Főoldal</a></li>
         <li><a href="mokusokrol.html">Mókusokról</a></li>
@@ -38,6 +40,13 @@
         <figcaption>Egy diót evő mókus</figcaption>
     </figure>
     <p>A mókusok hosszú téli álmot nem alszanak, de a hideg időjárás miatt az aktivitásuk csökkenhet. Az élelemhiány miatt a téli hónapokban a mókusok általában a korábban elrejtett magvakat fogyasztják.</p>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.add('show');
+        });
+    </script>
+
 </main>
 <footer>
     © 2023 Mókus oldal

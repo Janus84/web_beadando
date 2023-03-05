@@ -57,6 +57,11 @@ i {
 nav {
     background-color: #996633;
     padding: 10px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+.navbar.show{
+    transform: translateX(0%);
 }
 
 nav ul {
@@ -105,9 +110,6 @@ a.support:hover {
     color:#E2D8B8;
 }
 
-
-
-
 nav li a:active {
       color: black;
 }
@@ -116,6 +118,20 @@ main {
     padding: 20px;
 }
 
+th {
+    border: 5px solid black;
+    border-bottom: double;
+    text-align: center;
+}
+table {
+    border: 3px solid black;
+}
+.table{
+    align-content: center;
+}
+td {
+    border: 1px solid black;
+}
 footer {
     background-color: #6B4D32;
     padding: 20px;
