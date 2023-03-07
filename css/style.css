@@ -4,7 +4,9 @@ body {
     min-width: 200px;
     margin-top: 0;
 }
-
+.selected{
+    background-color: #6B4D32;
+}
 header {
     background-color: #6B4D32;
     padding: 20px;
