@@ -9,20 +9,21 @@
   <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
-<header>
+<header class="fixed_header">
   <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
   <h1>Mókus oldal</h1>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Főoldal</a></li>
+      <li><a href="mokusokrol.html">Mókusokról</a></li>
+      <li><a href="eletmod.html">Életmód</a></li>
+      <li><a href="galeria.html">Galéria</a></li>
+      <li><a href="urlap.html">Támogató leszek</a></li>
+      <li><a href="kapcsolat.html">Kapcsolat</a></li>
+    </ul>
+  </nav>
 </header>
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html">Főoldal</a></li>
-    <li><a href="mokusokrol.html">Mókusokról</a></li>
-    <li><a href="eletmod.html">Életmód</a></li>
-    <li><a href="galeria.html">Galéria</a></li>
-    <li><a href="kapcsolat.html">Kapcsolat</a></li>
-  </ul>
-</nav>
-<main>
+<main class="content">
   <form>
     <label for="name">Név:</label>
     <input type="text" id="name" name="name" required>
@@ -33,36 +34,36 @@
     <label for="message">Üzenet:</label>
     <textarea id="message" name="message" required></textarea>
 
+    <hr />
+
     <label for="rating">Mennyire szereted a mókusokat? (1-5)</label>
-    <input type="range" id="rating" name="rating" min="1" max="5" step="1">
+    <input type="range" id="rating" name="rating" min="1" max="10" step="1">
 
-    <label for="attachment">Melléklet:</label>
-    <input type="checkbox" id="attachment" name="attachment" onchange="toggleAttachment()">
+    <p>Mi a kedvenc mókusfajtád?</p>
+    <input type="radio" id="voros" name="mokus_tipus" value="voros">
+    <label for="voros">Vörös mókus (ez a helyes válasz)</label>
+    <input type="radio" id="szurke" name="mokus_tipus" value="szurke">
+    <label for="szurke">Szürke mókus</label>
+    <input type="radio" id="egyeb" name="mokus_tipus" value="egyeb">
+    <label for="egyeb">Egyéb mókuskákat szeretek</label>
 
-    <div id="attachment-section" style="display: none;">
-      <label for="file">Kép vagy videó link:</label>
-      <input type="file" id="file" name="file">
-    </div>
+    <hr />
+
+    <label for="file">Ha szeretnéd, hogy a galériában megjelenjen a kedvenc mókusos képed, ide tedd:</label>
+    <input type="file" id="file" name="file">
+
+
+
+
+
+<hr />
+    <p>A Mókusok az adományozóknak szeretnek mogyorós finomságokkal kedveskedni</p>
+
+    <input type="checkbox" id="attachment" name="attachment">
+    <label for="attachment">Elfogadom a sütit</label>
 
     <input type="submit" value="Küldés">
   </form>
-
-  <script>
-    function toggleAttachment() {
-      var attachmentSection = document.getElementById("attachment-section");
-      if (attachmentSection.style.display === "none") {
-        attachmentSection.style.display = "block";
-      } else {
-        attachmentSection.style.display = "none";
-      }
-    }
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const navbar = document.querySelector('.navbar');
-      navbar.classList.add('show');
-    });
-  </script>
 
 </main>
 <footer>

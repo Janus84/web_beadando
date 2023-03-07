@@ -2,6 +2,7 @@ body {
     background-color: #E2D8B8;
     font-family: Arial, sans-serif;
     min-width: 200px;
+    margin-top: 0;
 }
 
 header {
@@ -10,11 +11,53 @@ header {
     text-align: center;
     color: #FFF;
 }
+.fixed_header{
+    display: block;
+    top:0;
+    padding-bottom:0;
+    position: fixed;
+    width:100%;
+    padding: 0;
+}
+.navbar{
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: #FFF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #714825;
+}
+
+nav li a:active {
+    color: black;
+}
+
+.content{
+    padding-top: 330px;
+}
 
 #logo {
     display: inline;
-    margin-bottom: 10px;
-    overflow: hidden;
+    margin-top: 10px;
+    /*overflow: hidden;*/
 }
 
 h1 {
@@ -42,6 +85,29 @@ h3 {
     /*text-transform: uppercase;*/
 }
 
+table {
+    border-collapse: collapse;
+    /*margin: 20px;*/
+    border: 2px solid #714825FF;
+    width: 100%;
+    max-width: 800px;
+    background-color: #FFFFFF;
+}
+.center{
+    margin: auto;
+    text-align: center;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #714825FF;
+}
+th {
+    background-color: #6B4D32FF;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
 .title_text{
     font-size: 20px;
 }
@@ -57,35 +123,15 @@ i {
 nav {
     background-color: #996633;
     padding: 10px;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
+    margin:0;
+    /*transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;*/
 }
-.navbar.show{
+/*.navbar.show{
     transform: translateX(0%);
-}
+}*/
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
 
-nav li {
-    float: left;
-}
-
-nav li a {
-    display: block;
-    color: #FFF;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-nav li a:hover {
-    background-color: #714825;
-}
 
 a {
     color:#714825;
@@ -110,28 +156,12 @@ a.support:hover {
     color:#E2D8B8;
 }
 
-nav li a:active {
-      color: black;
-}
 
 main {
     padding: 20px;
+    display: block;
 }
 
-th {
-    border: 5px solid black;
-    border-bottom: double;
-    text-align: center;
-}
-table {
-    border: 3px solid black;
-}
-.table{
-    align-content: center;
-}
-td {
-    border: 1px solid black;
-}
 footer {
     background-color: #6B4D32;
     padding: 20px;
@@ -145,6 +175,10 @@ footer {
     /* Egy sorba rendezzük az elemeket */
     nav {
         overflow: hidden;
+    }
+
+    .content{
+        padding-top: 520px;
     }
 
     /* Az elemek teljes szélességet elfoglalják, és középre igazítottakk */
