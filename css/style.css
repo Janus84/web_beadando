@@ -172,6 +172,15 @@ footer {
     font-size: 14px;
 }
 
+main > {
+    opacity: 0;
+    transition: opacity 1s ease-out; / Tranzíció 1 másodperces időtartammal /
+        }
+main:target > {
+    opacity: 1;
+}
+
+
 /*600 pixeltől új stílus*/
 @media only screen and (max-width: 600px) {
     /* Egy sorba rendezzük az elemeket */

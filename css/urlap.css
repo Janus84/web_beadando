@@ -36,7 +36,7 @@ input[type="checkbox"] {
     accent-color: #be8560;
 }
 
-input[type="submit"] {
+input[type="submit"],input[type="reset"]  {
     background-color: #bf8042;
     display: block;
     color: white;
@@ -49,6 +49,23 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+
+input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #714825;
+}
+
+
+.float-left {
+    float: left;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+}
+
+.float-right {
+    float: right;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+}
+.clear {
+    clear: both;
 }
