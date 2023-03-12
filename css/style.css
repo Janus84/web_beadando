@@ -155,6 +155,28 @@ th {
 
 .title_text{
     font-size: 20px;
+    text-shadow: 2px 5px 5px sandybrown;
+}
+
+#absolute{
+    font-size: 10px;
+    text-shadow: 3px 6px 6px darksalmon;
+    color: saddlebrown;
+    position: absolute;
+    top:450px;
+    right: 60px;
+    letter-spacing: 2px;
+
+}
+#relative{
+    font-size: 10px;
+    text-shadow: 3px 6px 6px darksalmon;
+    color: saddlebrown;
+    position: relative;
+    bottom: 150px;
+    left: 50px;
+    letter-spacing: 2px;
+
 }
 
 mark {
@@ -209,8 +231,9 @@ footer {
     color: #FFF;
     font-size: 14px;
 }
-
-
+.shadowed{
+    text-shadow: 2px 5px 5px sandybrown;
+}
 
 @keyframes opacity1s {
     from {
@@ -221,7 +244,29 @@ footer {
     }
 }
 
+p::selection{
+    background-color: salmon;
+}
+p::first-letter{
+    font-size: 130%;
+    color: #6B4D32;
+}
 
+#relative::after{
+    content: " Esküszünk!"
+}
+
+#famokus{
+    z-index: 1;
+}
+#mokusgondolat{
+    color: #FFFFFF;
+    z-index: 100;
+    position: absolute;
+    left: 70px;
+    top: 1225px;
+
+}
 
 /*600 pixeltől új stílus*/
 @media only screen and (max-width: 600px) {

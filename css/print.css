@@ -1,0 +1,32 @@
+@media print {
+    p {
+        font-size: 14pt;
+    }
+    nav {
+        display: none;
+    }
+    footer{
+        display: none;
+    }
+    h1, h2 {
+        page-break-after: avoid;
+    }
+    .fixed_header{
+        display: none;
+    }
+    audio {
+        display: none;
+    }
+    video{
+        display: none;
+    }
+    head{
+        display: none;
+    }
+    header{
+        display: none;
+    }
+}
+@page  {
+    margin: 1cm;
+}
