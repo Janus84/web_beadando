@@ -34,9 +34,8 @@
 
     <label for="message">Üzenet:</label>
     <textarea id="message" name="message" required></textarea>
-
-    <hr />
     </fieldset>
+
     <fieldset>
     <label for="rating">Mennyire szereted a mókusokat? (1-5)</label>
     <input type="range" id="rating" name="rating" min="1" max="10" step="1">
@@ -48,9 +47,8 @@
     <label for="szurke">Szürke mókus</label><br />
     <input type="radio" id="egyeb" name="mokus_tipus" value="egyeb">
     <label for="egyeb">Egyéb mókuskákat szeretek</label>
-
-    <hr />
     </fieldset>
+
     <label for="file">Ha szeretnéd, hogy a galériában megjelenjen a kedvenc mókusos képed, ide tedd:</label>
     <input type="file" id="file" name="file">
 
@@ -59,11 +57,11 @@
 
     <input type="checkbox" id="attachment" name="attachment">
     <label for="attachment">Elfogadom a sütit</label>
-    <div class="float-left">
+    <div class="float-right">
       <input type="submit" value="Küldés">
     </div>
-    <div class="float-right">
-      <input type="reset" value="Beírt adatok törlése">
+    <div class="float-left">
+      <input type="reset" value="Adatok törlése">
     </div>
     <p>Köszönjük hogy a mókusokra szánta idejét!</p>
 

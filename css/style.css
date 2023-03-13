@@ -244,6 +244,10 @@ footer {
     }
 }
 
+asside{
+    display: block;
+}
+
 p::selection{
     background-color: salmon;
 }
@@ -261,7 +265,7 @@ p::first-letter{
 }
 #mokusgondolat{
     color: #FFFFFF;
-    z-index: 100;
+    z-index: 50;
     position: absolute;
     left: 70px;
     top: 1225px;
