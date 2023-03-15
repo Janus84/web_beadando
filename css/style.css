@@ -4,10 +4,12 @@ body {
     min-width: 200px;
     margin-top: 0;
 }
-.selected{
+
+.selected {
     background-color: #6B4D32;
     border-radius: 20px;
 }
+
 header {
     background-color: #6B4D32;
     padding: 20px;
@@ -15,15 +17,17 @@ header {
     color: #FFF;
     z-index: 100;
 }
-.fixed_header{
+
+.fixed_header {
     display: block;
-    top:0;
-    padding-bottom:0;
+    top: 0;
+    padding-bottom: 0;
     position: fixed;
-    width:100%;
+    width: 100%;
     padding: 0;
 }
-.navbar{
+
+.navbar {
     margin-top: 10px;
 }
 
@@ -34,7 +38,7 @@ nav ul {
     overflow: hidden;
 }
 
-.gif{
+.gif {
     float: right;
     margin-left: 10px;
     transform: rotate(5deg);
@@ -79,7 +83,7 @@ nav li a:hover {
 }
 
 
-.content{
+.content {
     padding-top: 330px;
     animation-name: opacity1s;
     animation-duration: 1s;
@@ -100,9 +104,15 @@ h1 {
 }
 
 @keyframes animateTitle {
-    0% { margin: 15px 0 0; }
-    50% { margin: 15px 10px 0; }
-    100% { margin: 15px 0 0; }
+    0% {
+        margin: 15px 0 0;
+    }
+    50% {
+        margin: 15px 10px 0;
+    }
+    100% {
+        margin: 15px 0 0;
+    }
 }
 
 h2 {
@@ -132,38 +142,42 @@ table {
     max-width: 800px;
     background-color: #FFFFFF;
 }
-.center{
+
+.center {
     display: block;
     margin: auto;
     text-align: center;
 }
-.skew{
+
+.skew {
     transform: skewX(3deg);
-    margin:auto;
+    margin: auto;
 }
+
 th, td {
     padding: 10px;
     text-align: left;
     border: 1px solid #714825FF;
 
 }
+
 th {
     background-color: #6B4D32FF;
     color: #FFFFFF;
     font-weight: bold;
 }
 
-.title_text{
+.title_text {
     font-size: 20px;
     text-shadow: 2px 5px 5px sandybrown;
 }
 
-#absolute{
+#absolute {
     font-size: 10px;
     text-shadow: 3px 6px 6px darksalmon;
     color: saddlebrown;
     position: absolute;
-    top:450px;
+    top: 450px;
     right: 60px;
     letter-spacing: 2px;
 
@@ -175,30 +189,30 @@ mark {
 }
 
 i {
-   font-size: 14px;
+    font-size: 14px;
 }
 
 nav {
     background-color: #996633;
     padding: 10px;
-    margin:0;
+    margin: 0;
 }
 
 
-
 a {
-    color:#714825;
+    color: #714825;
 }
 
 a:visited {
     #color: #6B4D32;
 }
+
 a.support {
     color: #714825;
     display: block;
-    width:100%;
+    width: 100%;
     text-align: center;
-    margin-left: auto;          /* vízszintesen középre igazítjuk az elemet */
+    margin-left: auto; /* vízszintesen középre igazítjuk az elemet */
     margin-right: auto;
     text-transform: uppercase;
     font-size: 30px;
@@ -206,7 +220,7 @@ a.support {
 
 a.support:hover {
     background-color: #714825;
-    color:#E2D8B8;
+    color: #E2D8B8;
 }
 
 
@@ -222,7 +236,8 @@ footer {
     color: #FFF;
     font-size: 14px;
 }
-.shadowed{
+
+.shadowed {
     text-shadow: 2px 5px 5px sandybrown;
 }
 
@@ -235,22 +250,22 @@ footer {
     }
 }
 
-asside{
+asside {
     display: block;
 }
 
-p::selection{
+p::selection {
     background-color: salmon;
 }
-p::first-letter{
+
+p::first-letter {
     font-size: 130%;
     color: #6B4D32;
 }
 
-#relative::after{
+#relative::after {
     content: " Esküszünk!"
 }
-
 
 
 /*600 pixeltől új stílus*/
@@ -260,7 +275,7 @@ p::first-letter{
         overflow: hidden;
     }
 
-    .content{
+    .content {
         padding-top: 560px;
         animation-name: opacity1s;
         animation-duration: 1s;
