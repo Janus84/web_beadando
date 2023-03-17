@@ -3,17 +3,14 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .image {
     margin: 10px;
 }
-
 .image img {
     max-width: 300px;
     height: auto;
     transition: all 0.3s ease;
 }
-
 .image a:hover img {
     transform: scale(1.1);
 }
