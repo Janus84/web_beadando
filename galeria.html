@@ -2,7 +2,8 @@
 <html lang="hu">
 <head>
     <title>Mókus galéria</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/galeria.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="media/icon.png" type="image/x-icon">
@@ -11,7 +12,7 @@
 <body>
 <header class="fixed_header">
     <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
-    <h1>Mókus oldal</h1>
+    <div id="title">Mókus oldal</div>
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Főoldal</a></li>
@@ -24,10 +25,11 @@
     </nav>
 </header>
 <main class="content">
-    <section>
+    <div>
         <a class="support" href="urlap.html">Én is támogatom a mókusokat!</a>
-    </section>
+    </div>
     <section class="gallery">
+        <!--Itt is szól a validátor a h1-6 tegek miatt, de azt írja, hogy divekkel is jó, mégis hibát dob-->
         <div class="image">
             <a href="media/elohely.jpg">
                 <img src="media/elohely.jpg" alt="Kép 1">

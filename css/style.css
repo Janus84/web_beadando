@@ -11,6 +11,11 @@ header {
     color: #FFF;
     z-index: 100;
 }
+#title{
+    margin: 15px 0 0;
+    font-size: 36px;
+    text-transform: uppercase;
+}
 .fixed_header {
     display: block;
     top: 0;
@@ -143,6 +148,10 @@ th {
     color: #FFFFFF;
     font-weight: bold;
 }
+.szamla{
+    position: relative;
+    left: 50px;
+}
 mark {
     background-color: #a68466;
 }
@@ -198,6 +207,7 @@ a.support:hover {
     right: 60px;
     letter-spacing: 2px;
 }
+
 p::selection {
     background-color: salmon;
 }
@@ -208,7 +218,6 @@ p::first-letter {
 #relative::after {
     content: " Esküszünk!"
 }
-
 
 /*600 pixeltől új stílus*/
 @media only screen and (max-width: 600px) {

@@ -26,7 +26,18 @@
     header{
         display: none;
     }
-
+    .content {
+        padding-top: 10px;
+    }
+    .support {
+        display: none;
+    }
+    .gif {
+        transform: rotate(0deg);
+    }
+    #print_hidden{
+        display: none;
+    }
 }
 @page  {
     margin: 1cm;

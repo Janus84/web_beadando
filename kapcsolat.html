@@ -2,7 +2,8 @@
 <html lang="hu">
 <head>
     <title>Kapcsolat</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="media/icon.png" type="image/x-icon">
     <link rel="icon" href="media/icon.png" type="image/x-icon">
@@ -10,7 +11,7 @@
 <body>
 <header class="fixed_header">
     <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
-    <h1>Mókus oldal</h1>
+    <div id="title">Mókus oldal</div>
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Főoldal</a></li>
@@ -24,46 +25,37 @@
 </header>
 <main class="content">
     <h2 class="center">Az alkotókról</h2>
+        <table class="skew">
+            <caption>(azaz rólunk)</caption>
+            <thead>
+            <tr>
+                <th id="oszlop1">Név:</th>
+                <th id="oszlop2">Kovács Imre</th>
+                <th id="oszlop3">Molnár János</th>
+            </tr>
+            </thead>
 
-    <table class="skew">
-        <thead>
-        <tr>
-            <th colspan="3">A mókus oldal alkotói</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td id="name-header"> Név:</td>
-            <td headers="name-header">Kovács Imre</td>
-            <td headers="name-header">Molnár János</td>
-        </tr>
-        <tr>
-            <td id="level-header">Mókusszakértési Szint:</td>
-            <td headers="level-header">100</td>
-            <td headers="level-header">150</td>
-        </tr>
-        <tr>
-            <td id="position-header">Mókus Önkormányzati (MÖK) Pozíció:</td>
-            <td headers="position-header">Helyettes Államtitkár</td>
-            <td headers="position-header">Mókusügyi Miniszter</td>
-        </tr>
-        <tr>
-            <td id="bank-header">Bankszámlaszám (ha esetleg támogatnál minket):</td>
-            <td headers="bank-header">122333-44445-5555</td>
-            <td headers="bank-header">6666-66777-777788</td>
-        </tr>
-        <tr>
-            <td id="email-header">Email-cím:</td>
-            <td headers="email-header">hyba28@gmail.com</td>
-            <td headers="email-header">molnarjanos84@gmail.com</td>
-        </tr>
-        <tr>
-            <td id="id-header">Mókusügyi Önkormányzati (MÖK) ID:</td>
-            <td headers="id-header">2</td>
-            <td headers="id-header">1</td>
-        </tr>
-        </tbody>
-    </table>
+            <tr>
+                <td headers="oszlop1">Mókusszakértési Szint:</td>
+                <td headers="oszlop2">100</td>
+                <td headers="oszlop3">150</td>
+            </tr>
+            <tr>
+                <td headers="oszlop1">Mókus Önkormányzati (MÖK) Pozíció:</td>
+                <td headers="oszlop2">Helyettes Államtitkár</td>
+                <td headers="oszlop3">Mókusügyi Miniszter</td>
+            </tr>
+            <tr>
+                <td headers="oszlop1">Bankszámlaszám (ha esetleg támogatnál minket):</td>
+                <td headers="oszlop2 oszlop3" colspan="2" class="szamla">122333-44445-5555</td>
+
+            </tr>
+            <tr>
+                <td headers="oszlop1">Email-cím:</td>
+                <td headers="oszlop2">hyba28@gmail.com</td>
+                <td headers="oszlop3">molnarjanos84@gmail.com</td>
+            </tr>
+        </table>
     <hr />
     <div>
         <p> Az oldal készítése során semmilyen mókusnak nem esett bántódása!</p>
