@@ -1,0 +1,36 @@
+
+A megvalósított funkciók használata kényelmes (0/2/5 pont)
+Minden oldalon minden menü látszik
+
+követelmény az adott input mezőre nézve (pl. a jelszó legalább 8 karakter) ezek nem az űrlap elküldése után (0/3 pont)
+GET paraméterek megfelelő használata (0/2 pont)
+Objektumorientáltság megfelelő használata (0/2/4 pont)
+Sütik értelmes módon való használata (0/3 pont)
+
+Regisztráció, új felhasználó adatai eltárolódnak (0/2 pont)
+Kötelezően űrlapmezők kitöltése szerveroldalon is ellenőrizve van (0/2 pont)
+Ha foglalt a felhasználónév (vagy e-mail cím), akkor nem regisztrálja be az új felhasználót (0/2 pont)
+A jelszót két alkalommal kell beírni, ezek azonossága vizsgálva van szerver oldalon (0/2 pont)
+Ha valamelyik mezőt rosszul (vagy nem) tölti ki a felhasználó, akkor a weboldal erre figyelmezteti, pontos hibajelzéssel, az összes hibát jelezve (0/2 pont)
+A felhasználók jelszavai biztonságosan vannak tárolva (nem plain text) (0/3 pont)
+
+Bejelentkezés (0/2 pont)
+Ha bejelentkezéskor rossz adatokat adunk meg, akkor megfelelő hibaüzenetet kapunk (0/2 pont)
+Csak bejelentkezett felhasználó lát bizonyos oldalt (0/2 pont)
+Ha nincs bejelentkezve, ezeknél átirányít a bejelentkezéshez (0/2 pont)
+Kijelentkezés (0/2 pont)
+
+A felhasználónak van lehetősége néhány adatának módosítására és publikus legyen-e (pl. születési dátum, bemutatkozás, stb.) (0/2/4 pont)
+A felhasználó tud profilképet feltölteni magának, ezt le is tudja cserélni, illetve az oldalon meg is jelenik (0/2/4 pont)
+A felhasználó tudja törölni a felhasználói fiókját, ilyenkor az összes adata törlődik (0/4 pont)
+A felhasználó meg tudja tekinteni más felhasználók profilját / publikus adatait
+         (pl. felhasználónév, profilkép, leírás, stb.)
+Meg vannak valósítva különböző jogosultsági szintek (pl. felhasználó, admin). Az egyes jogosultsági szinttel rendelkező felhasználók több funkciót elérnek
+    (pl. az admin tud letiltani felhasználókat, látja a rendeléseket, stb.) (0/4/8 pont)
+
+
+         ??
+A felhasználó különböző interakcióba léphet a weboldallal, ennek következményei vannak, melyek újbóli bejelentkezés után is megmaradnak (pl. termékeket tud kosárba helyezni, filmeket értékelni 1-5 csillaggal (és ezeket látja is, hogy mennyire értékelte korábban), ismerősként vehet fel más felhasználókat, stb.) (0/4/8 pont)
+• A felhasználó tud üzenetet küldeni a többi felhasználónak (vagy néhány felhasználónak), akik ezt láthatják, és válaszolni tudnak neki (0/4/8 pont)
+•
+• Egyéb, a felsoroltakban nem szereplő, megvalósított funkciók (0/4/8 pont)

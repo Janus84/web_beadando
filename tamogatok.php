@@ -15,20 +15,27 @@
     <div id="title">Mókus oldal</div>
     <nav class="navbar">
         <ul>
-            <li><a href="index.html">Főoldal</a></li>
+            <li><a href="index.php">Főoldal</a></li>
             <li><a href="mokusokrol.html">Mókusokról</a></li>
             <li><a href="eletmod.html">Életmód</a></li>
-            <li class="selected"><a href="galeria.html">Galéria</a></li>
-            <li><a href="urlap.html">Támogató leszek</a></li>
+            <li class="selected"><a href="tamogatok.html">Galéria</a></li>
+            <li><a href="urlap.php">Támogató leszek</a></li>
             <li><a href="kapcsolat.html">Kapcsolat</a></li>
         </ul>
     </nav>
 </header>
 <main class="content">
     <div>
-        <a class="support" href="urlap.html">Én is támogatom a mókusokat!</a>
+        <!-- Hogyha van süti elfogadás-->
+        <p>Reméljük ízlik a süti, amit kaptál a mókusoktól</p>
+        <p>Örülünk, hogy újra itt vagy. Látjuk, hogy fogytán a sütid, ezért kapsz tőlünk egy kis utánpótlást</p>
+        <p>Rég jártál itt ezért elfogyott a sütid.  De ne aggódj, kapsz egy új adagot.</p>
     </div>
     <section class="gallery">
+
+
+        <!-- A támogató neve és képe. Kattintva az adatlap jelenik meg a kép létrehozójának adataival-->
+
         <!--Itt is szól a validátor a h1-6 tegek miatt, de azt írja, hogy divekkel is jó, mégis hibát dob-->
         <div class="image">
             <a href="media/elohely.jpg">

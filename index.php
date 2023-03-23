@@ -13,24 +13,15 @@
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
 </head>
 <body>
-<header class="fixed_header">
-    <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
-    <div id="title">Mókus oldal</div>
-    <nav class="navbar">
-        <ul>
-            <li class="selected"><a href="index.html">Főoldal</a></li>
-            <li><a href="mokusokrol.html">Mókusokról</a></li>
-            <li><a href="eletmod.html">Életmód</a></li>
-            <li><a href="galeria.html">Galéria</a></li>
-            <li><a href="urlap.html">Támogató leszek</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-        </ul>
-    </nav>
-</header>
+<?php
+session_start();
+include_once ('header.php')
+?>
 
 <main class="content">
     <article>
-        <h1>Kedves Támogatónk!</h1>
+        <h1>Kedves Támogatónk!</h1> <!-- Ide jön a felhasználónév név-->
+
         <p class="title_text">Üdvözlünk a mókus oldalon! Ez a lap a mókusok <strong>méltánytalan
             elhanyagoltságának</strong>
             és <strong>hátrányos megkülönböztetésük</strong> megszűntetéséért jött létre.
@@ -81,15 +72,15 @@
                 </li>
             </ul>
 
-            <a id="print_hidden" class="support" href="urlap.html">Segíts a mókusokon és kattints!</a>
+            <a id="print_hidden" class="support" href="urlap.php">Segíts a mókusokon és kattints!</a>
         </section>
     </article>
 
 
 
 </main>
-<footer>
-    © 2023 Mókus oldal
-</footer>
+<?php
+include_once ('footer.php')
+?>
 </body>
 </html>

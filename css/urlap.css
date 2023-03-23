@@ -14,7 +14,8 @@ input[type="text"],
 input[type="email"],
 textarea,
 input[type="range"],
-input[type="file"] {
+input[type="file"]
+input[type="password"]{
     display: block;
     width: 100%;
     padding: 10px 0 10px 0;
