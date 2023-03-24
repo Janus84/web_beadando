@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include "controls/Cookies.php";
+Cookies::startSession();
+?>
 <html lang="hu">
 <head>
     <title>Mókus oldal</title>
@@ -14,7 +18,6 @@
 </head>
 <body>
 <?php
-session_start();
 include_once ('header.php')
 ?>
 
@@ -32,7 +35,7 @@ include_once ('header.php')
             <div>
                 <img src="media/twril.gif" alt="szegény mókuska" class="gif">
                 <p>Szegény éhező mókusok próbálnak túlélni a <b>téli hideg</b> időben, ezért a madáretetőkben található
-                    <em><a href="mokusokrol.html#elelmezes">magvak korai begyűjtésére</a></em> fokozottan szükségük van.
+                    <em><a href="mokusokrol.php#elelmezes">magvak korai begyűjtésére</a></em> fokozottan szükségük van.
                     A gonosz madarak nemhogy eleszik a szegény mókusok elől a táplálékot,
                     hanem még szörnyű csapdákat is állítanak. <i>Ez a madarakra igen jellemző</i></p>
             </div>
@@ -50,7 +53,7 @@ include_once ('header.php')
                 <cite><a href="https://www.gyerekdal.hu/dal/mokuska-mokuska" target="_blank">Az idézet
                     forrása</a></cite>
             </blockquote>
-            <p>A mókusok <em><a href="eletmod.html#elohely">élőhelye</a></em> igen is indokolja a fára mászás
+            <p>A mókusok <em><a href="eletmod.php#elohely">élőhelye</a></em> igen is indokolja a fára mászás
                 szükségességét</p>
 
             <audio controls>
@@ -72,12 +75,9 @@ include_once ('header.php')
                 </li>
             </ul>
 
-            <a id="print_hidden" class="support" href="urlap.php">Segíts a mókusokon és kattints!</a>
+            <a id="print_hidden" class="support" href="regisztral.php">Segíts a mókusokon és kattints!</a>
         </section>
     </article>
-
-
-
 </main>
 <?php
 include_once ('footer.php')

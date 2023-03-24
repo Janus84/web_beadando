@@ -1,7 +1,11 @@
 <!DOCTYPE html>
+<?php
+include "controls/Cookies.php";
+Cookies::startSession();
+?>
 <html lang="hu">
 <head>
-    <title>Mókus oldal</title>
+    <title>Bejelentkezés</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
@@ -10,33 +14,24 @@
     <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
-<!--<header class="fixed_header">-->
-<!--    <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">-->
-<!--    <div id="title">Mókus oldal</div>-->
-<!--    <nav class="navbar">-->
-<!--        <ul>-->
-<!--            <li><a href="index.php">Főoldal</a></li>-->
-<!--            <li><a href="mokusokrol.html">Mókusokról</a></li>-->
-<!--            <li><a href="eletmod.html">Életmód</a></li>-->
-<!--            <li><a href="tamogatok.php">Galéria</a></li>-->
-<!--            <li class="selected"><a href="urlap.html">Támogató leszek</a></li>-->
-<!--            <li><a href="kapcsolat.html">Kapcsolat</a></li>-->
-<!--        </ul>-->
-<!--    </nav>-->
-<!--</header>-->
+<?php
+include_once ('header.php')
+?>
 <?php
 session_start();
 include "controls/Muveletek.php";
 
-
-//Hogyha getbe kap paramétert, akkor mást ír k. Hogyha postba megkapja a saját űrlapját, akkor belép
+//Hogyha getbe kap paramétert, akkor kiírja miért jött ide. Hogyha postba megkapja a saját űrlapját, akkor belép
 $uzenet = "";
-if ($_GET['param'] === "galeria") {
-    $uzenet = "A galéria megtekintéséhez be kell jelentkeznie!";
-} else if ($_GET['param'] === "logout") {
-    $uzenet = "Sikeresen kijelentkeztél!";
-} else if ($_GET['param'] === "reg") {
-    $uzenet = "A regisztráció sikeres volt! Kérem jelentkezzen be!";
+
+if(!isset($_GET['param'])) {
+    if ($_GET['param'] === "tamogatok") {
+        $uzenet = "A támogatók megtekintéséhez be kell jelentkeznie!";
+    } else if ($_GET['param'] === "logout") {
+        $uzenet = "Sikeresen kijelentkeztél!";
+    } else if ($_GET['param'] === "reg") {
+        $uzenet = "A regisztráció sikeres volt! Kérem jelentkezzen be!";
+    }
 }
 
 if (isset($_POST['submit'])) {
@@ -46,14 +41,12 @@ if (isset($_POST['submit'])) {
 ?>
 <main class="content">
 
-    <h2>Ez itt a szöveg:</h2>
     <div>
-        <?php
-        echo("alma");
-        echo "<p>" . $uzenet . "</p>";
+        <?php if ($uzenet !== ""){
+            echo "<p>" . $uzenet . "</p>";
+        }
         ?>
     </div>
-
 
     <form action="bejelentkezes.php" method="post" enctype="multipart/form-data" autocomplete="off">
 <fieldset>
@@ -71,8 +64,8 @@ if (isset($_POST['submit'])) {
 
 
 </main>
-<footer>
-    © 2023 Mókus oldal
-</footer>
+<?php
+include_once ('footer.php')
+?>
 </body>
 </html>

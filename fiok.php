@@ -1,13 +1,15 @@
 <!-- TODO Ide jönnek a személyes adatok, vagy más személyes adatai, és a felhasználó törlése (ha saját vagy admin)-->
 <?php
-//include "config/CheckCookies.php";
-//CheckCookies::checkCookiesEnabled();
+include "controls/Cookies.php";
+Cookies::startSession();
+?>
+<?php
 
 //include "config/DeleteUser.php";
 
 $felhasznalo = $_SESSION['user'];
 
-var_dump($felhasznalo);
+//var_dump($felhasznalo);
 $uzenet = "";
 $param=$_GET['param'];
 if (isset($param) && strlen($param) > 0){
@@ -32,7 +34,7 @@ if (isset($param) && strlen($param) > 0){
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <title>Mókus oldal</title>
+    <title>Fiók</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
@@ -41,20 +43,9 @@ if (isset($param) && strlen($param) > 0){
     <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
-<!--<header class="fixed_header">-->
-<!--    <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">-->
-<!--    <div id="title">Mókus oldal</div>-->
-<!--    <nav class="navbar">-->
-<!--        <ul>-->
-<!--            <li><a href="index.php">Főoldal</a></li>-->
-<!--            <li><a href="mokusokrol.html">Mókusokról</a></li>-->
-<!--            <li><a href="eletmod.html">Életmód</a></li>-->
-<!--            <li><a href="tamogatok.php">Galéria</a></li>-->
-<!--            <li class="selected"><a href="urlap.html">Támogató leszek</a></li>-->
-<!--            <li><a href="kapcsolat.html">Kapcsolat</a></li>-->
-<!--        </ul>-->
-<!--    </nav>-->
-<!--</header>-->
+<?php
+include_once ('header.php')
+?>
 <main class="container">
     <h1>FIOK</h1>
     <div>
@@ -69,17 +60,40 @@ if (isset($param) && strlen($param) > 0){
             <?php } ?>
         </div>
         <table>
-            <caption>Profil</caption>
             <tbody>
 <!--            TODO ide kell egy táblázat az adatok listázásával engedélyek alapján-->
-            <?php foreach ($felhasznalo as $adatai => $felhasznaloAdatok) {?>
-                <tr>
-                    <?php if ($adatai !== "KepURL"){ ?>
-                        <th><?php echo $adatai ?></th>
-                        <td><?php if(trim($felhasznaloAdatok) === "") echo "Nincs megadva"; else echo $felhasznaloAdatok?></td>
-                    <?php } ?>
-                </tr>
-            <?php } ?>
+
+                    <?php foreach ($felhasznalo as $adatNeve => $adatTartalma) {
+                        echo("<tr>");
+                        if ($adatNeve !== "KepURL") {
+                            echo("<th>$adatNeve</th>");
+
+                            echo("<td>");
+                            if ($adatNeve === "Kedvenc mókus") {
+                                switch ($adatTartalma) {
+                                    case "voros":
+                                        echo("vörös mókuskák (ők a legaranyosabbak)");
+                                        break;
+                                    case "szurke":
+                                        echo("szürke mókuskák (ők gyorsak)");
+                                        break;
+                                    case "egyeb":
+                                        echo("egyéb mókusok (egyesek még repülni is tudnak)");
+                                        break;
+                                }
+                            }else {
+                                echo($adatTartalma);
+                            }
+                            echo("</td>");
+                        }
+                        echo("</tr>");
+                    }
+
+                    ?>
+
+
+
+
             </tbody>
         </table>
     </section>

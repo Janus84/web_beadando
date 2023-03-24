@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include "controls/Cookies.php";
+Cookies::startSession();
+?>
 <html lang="hu">
 <head>
     <title>Kapcsolat</title>
@@ -10,20 +14,9 @@
 </head>
 <body>
 <!-- Kapcsolat helyet rólunk -->
-<header class="fixed_header">
-    <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
-    <div id="title">Mókus oldal</div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.php">Főoldal</a></li>
-            <li><a href="mokusokrol.html">Mókusokról</a></li>
-            <li><a href="eletmod.html">Életmód</a></li>
-            <li><a href="tamogatok.php">Galéria</a></li>
-            <li><a href="urlap.php">Támogató leszek</a></li>
-            <li class="selected"><a href="kapcsolat.html">Kapcsolat</a></li>
-        </ul>
-    </nav>
-</header>
+<?php
+include_once ('header.php')
+?>
 <main class="content">
     <h2 class="center">Az alkotókról</h2>
         <table class="skew">
@@ -65,8 +58,8 @@
 
 
 </main>
-<footer>
-    © 2023 Mókus oldal
-</footer>
+<?php
+include_once ('footer.php')
+?>
 </body>
 </html>

@@ -1,62 +1,51 @@
 <?php
-
-// Get paraméter globális tömbbe
-if (isset($GLOBALS['queryParams'])) {
-    $queryParams = $GLOBALS['queryParams'];
-} else {
-    $queryParams = "";
-}
-
-// Navigációs elemek összeállítása
 include_once "models/NavItem.php";
 
-$navLista = [
-    new Linkek("index.php" . $queryParams, "Főoldal"),
-    new Linkek("mokusokrol.php" . $queryParams, "Mókusokról"),
-    new Linkek("eletmod.php" . $queryParams, "Életmód"),
-    new Linkek("tamogatok.php" . $queryParams, "Támogatók"),
-    new Linkek("kapcsolat.php" . $queryParams, "Kapcsolat"),
+if (isset($GLOBALS['qetParams'])) {
+    $qetParams = $GLOBALS['qetParams'];
+} else {
+    $qetParams = "";
+}
+
+//Létrehozzuk a navigációs elemeket és a linkekhez hozzáfűzzük a get paramétereket a sessionID miatt
+$navElemek = [
+    new NavItem("Főoldal","index.php" . $qetParams),
+    new NavItem("Mókusokról","mokusokrol.php" . $qetParams ),
+    new NavItem("Életmód","eletmod.php" . $qetParams),
+    new NavItem("Támogatók","tamogatok.php" . $qetParams),
+    new NavItem("Kapcsolat","kapcsolat.php" . $qetParams),
 ];
 
 // Bejelentkezés alapján megjelenik
-if (isset($_SESSION['user'])) {
-    $navLista[] = new Linkek("fiok.php" . $queryParams, "Fiókom");
-    $navLista[] = new Linkek("kijelentkezes.php" . $queryParams, "Kijelentkezés");
+if (isset($_SESSION['nev'])) {
+    $navElemek[] = new NavItem("Fiókom","fiok.php" . $qetParams );
+    $navElemek[] = new NavItem("Kijelentkezés","kijelentkezes.php" . $qetParams );
 } else {
-    $navLista[] = new Linkek("urlap.php" . $queryParams, "Támogató leszek");
-    $navLista[] = new Linkek("bejelentkezes.php" . $queryParams, "Bejelentkezés");
+    $navElemek[] = new NavItem("Támogató leszek","regisztral.php" . $qetParams);
+    $navElemek[] = new NavItem("Bejelentkezés", "bejelentkezes.php" . $qetParams);
 }
 
+//meghatározzuk a link elejét
 $location = explode("/", $_SERVER['REQUEST_URI'])[2];
+//hogyha van benne ?, akkor a végét levágjuk
 if (strpos($location, "?")) {
     $location= explode("?", $location)[0];
-}
+}?>
 
-//$GLOBALS['title'] = "";
-
-
-echo '<header class="fixed_header">
+<header class="fixed_header">
     <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
     <div id="title">Mókus oldal</div>
     <nav class="navbar">
         <ul>
-            <li class="selected"><a href="index.html">Főoldal</a></li>
-            <li><a href="mokusokrol.html">Mókusokról</a></li>
-            <li><a href="eletmod.html">Életmód</a></li>
-            
-            <!--Ez csak bejelentkezettnek -->
-            <li><a href="tamogatok.php">Támogatók</a></li>
-
-
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-            
-            <li><a href="urlap.php">Támogató leszek</a></li>
-            <li><a href="bejelentkezes.html">Támogató vagyok</a></li>
-            <!--Vagy -->
-            <li><a href="fiokom.html">Fiókom</a></li>          
-            <li><a href="kijelentkezes.html">Kijelentkezés</a></li>
-            
+            <?php
+            foreach ($navElemek as $elem) { ?>
+                <li class="<?php if ($elem->getLink() === $location) echo "selected" ?>">
+                    <a href=<?php echo $elem->getLink() ?>>
+                        <?php echo $elem->getNev();?>
+                    </a>
+                </li>
+            <?php } ?>
         </ul>
     </nav>
-</header>';
-?>
+</header>
+

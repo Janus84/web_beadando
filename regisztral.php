@@ -1,7 +1,11 @@
 <!DOCTYPE html>
+<?php
+include "controls/Cookies.php";
+Cookies::startSession();
+?>
 <html lang="hu">
 <head>
-    <title>Mókus oldal</title>
+    <title>Támogató leszek</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
@@ -10,23 +14,11 @@
     <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
-<header class="fixed_header">
-    <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
-    <div id="title">Mókus oldal</div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.php">Főoldal</a></li>
-            <li><a href="mokusokrol.html">Mókusokról</a></li>
-            <li><a href="eletmod.html">Életmód</a></li>
-            <li><a href="tamogatok.php">Galéria</a></li>
-            <li class="selected"><a href="urlap.html">Támogató leszek</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-        </ul>
-    </nav>
-</header>
+<?php
+include_once ('header.php')
+?>
 
 <?php
-session_start();
 $hibak = [];
 $sikeres = false;
 echo("<p>start</p>");
@@ -40,8 +32,6 @@ if (isset($_POST['submit'])){
     <div>
     <p>Ide jönnek a hibák:</p>
         <?php
-        echo("SIKERES: $sikeres");
-        var_dump($hibak);
         if ($sikeres !== true){
             foreach ($hibak as $hiba) {
                 echo "<p>" . $hiba . "</p>";
@@ -50,7 +40,7 @@ if (isset($_POST['submit'])){
         ?>
     </div>
 
-    <form action="urlap.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form action="regisztral.php" method="post" enctype="multipart/form-data" autocomplete="off">
         <fieldset>
             <label for="nev" >Név:</label>
             <input type="text" id="nev" name="nev" placeholder="Felhasználónév" value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>" required>
@@ -101,8 +91,8 @@ if (isset($_POST['submit'])){
         <p>Köszönjük hogy a mókusokra szánta idejét!</p>
 
 </main>
-<footer>
-    © 2023 Mókus oldal
-</footer>
+<?php
+include_once ('footer.php')
+?>
 </body>
 </html>

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include "controls/Cookies.php";
+Cookies::startSession();
+?>
 <html lang="hu">
 <head>
     <title>Mókusokról</title>
@@ -10,20 +14,9 @@
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
 </head>
 <body>
-<header class="fixed_header">
-    <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
-    <div id="title">Mókus oldal</div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.php">Főoldal</a></li>
-            <li class="selected"><a href="mokusokrol.html">Mókusokról</a></li>
-            <li><a href="eletmod.html">Életmód</a></li>
-            <li><a href="tamogatok.php">Galéria</a></li>
-            <li><a href="urlap.php">Támogató leszek</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-        </ul>
-    </nav>
-</header>
+<?php
+include_once ('header.php')
+?>
 <main class="content">
     <h1>A mókusokról általánosságban</h1>
     <p>A mókusok a rágcsálók családjába tartoznak. A világon több mint 200 mókusfajta él, amelyek szerte a világon elterjedtek. A mókusokat már az ókori görögök is ismerték, és a középkorban Európában vadászták őket húsa és bundája miatt.</p>
@@ -55,8 +48,8 @@
     </script>
 
 </main>
-<footer>
-    © 2023 Mókus oldal
-</footer>
+<?php
+include_once ('footer.php')
+?>
 </body>
 </html>

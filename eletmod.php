@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include "controls/Cookies.php";
+Cookies::startSession();
+?>
 <html lang="hu">
 <head>
     <title>Életmód</title>
@@ -10,20 +14,9 @@
     <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
 </head>
 <body>
-<header class="fixed_header">
-    <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
-    <div id="title">Mókus oldal</div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.php">Főoldal</a></li>
-            <li><a href="mokusokrol.html">Mókusokról</a></li>
-            <li class="selected"><a href="eletmod.html">Életmód</a></li>
-            <li><a href="tamogatok.php">Galéria</a></li>
-            <li><a href="urlap.php">Támogató leszek</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-        </ul>
-    </nav>
-</header>
+<?php
+include_once ('header.php')
+?>
 <main class="content">
     <h1>Európai mókusok életmódja</h1>
     <p class="shadowed">Az európai mókusok aktív állatok, és a nap nagy részében a fák között mászkálnak. Az éjszakákat általában fészkeikben töltik, amelyeket a fák üregeiben vagy ágai között építenek fel.</p>
@@ -58,8 +51,8 @@
         });
     </script>
 </main>
-<footer>
-    © 2023 Mókus oldal
-</footer>
+<?php
+include_once ('footer.php')
+?>
 </body>
 </html>

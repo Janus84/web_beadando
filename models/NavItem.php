@@ -5,19 +5,59 @@ class NavItem
     private $link;
     //private $permission;
 
-    public function __construct($nev, $link, $permission) {
+    public function __construct($nev, $link) {
         $this->nev = $nev;
         $this->link = $link;
         //$this->permission = $permission;
     }
 
-    public function getNev() {
+    /**
+     * @return mixed
+     */
+    public function getNev()
+    {
         return $this->nev;
     }
-    public function getLink() {
+
+    /**
+     * @param mixed $nev
+     */
+    public function setNev($nev): void
+    {
+        $this->nev = $nev;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLink()
+    {
         return $this->link;
     }
-    /*public function getPermission() {
-        return $this->permission;
-    }*/
+
+    /**
+     * @param mixed $link
+     */
+    public function setLink($link): void
+    {
+        $this->link = $link;
+    }
+
+    /**
+     * @return mixed
+     */
+//    public function getPermission()
+//    {
+//        return $this->permission;
+//    }
+//
+//    /**
+//     * @param mixed $permission
+//     */
+//    public function setPermission($permission): void
+//    {
+//        $this->permission = $permission;
+//    }
+
+
 }

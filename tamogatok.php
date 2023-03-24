@@ -1,7 +1,11 @@
 <!DOCTYPE html>
+<?php
+include "controls/Cookies.php";
+Cookies::startSession();
+?>
 <html lang="hu">
 <head>
-    <title>Mókus galéria</title>
+    <title>Támogatók</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/galeria.css">
@@ -10,20 +14,9 @@
     <link rel="icon" href="media/icon.png" type="image/x-icon">
 </head>
 <body>
-<header class="fixed_header">
-    <img src="media/navmokus.jpg" alt="Mókus logó" id="logo">
-    <div id="title">Mókus oldal</div>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.php">Főoldal</a></li>
-            <li><a href="mokusokrol.html">Mókusokról</a></li>
-            <li><a href="eletmod.html">Életmód</a></li>
-            <li class="selected"><a href="tamogatok.html">Galéria</a></li>
-            <li><a href="urlap.php">Támogató leszek</a></li>
-            <li><a href="kapcsolat.html">Kapcsolat</a></li>
-        </ul>
-    </nav>
-</header>
+<?php
+include_once ('header.php')
+?>
 <main class="content">
     <div>
         <!-- Hogyha van süti elfogadás-->
@@ -60,8 +53,8 @@
         });
     </script>
 </main>
-<footer>
-    © 2023 Mókus oldal
-</footer>
+<?php
+include_once ('footer.php')
+?>
 </body>
 </html>

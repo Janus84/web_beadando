@@ -1,5 +1,6 @@
 <?php
 include_once "exceptions/MokusException.php";
+include_once "models/Felhasznalo.php";
 
 class Muveletek
 {
@@ -9,9 +10,9 @@ class Muveletek
         try {
             $file = fopen("database/felhasznalok.txt", "a");
             fwrite($file, serialize($felhasznalo) . "\n");
-        } catch (Error $error) {
-            //header("Location: urlap.php?hibak=" . $hibak->getMessage());
-            echo("$hibak->getMessage()");
+        } catch (Error $hibak) {
+            header("Location: regisztral.php?hibak=" . $hibak->getMessage());
+            //echo("$hibak->getMessage()");
         } finally {
             fclose($file);
         }
@@ -25,7 +26,8 @@ class Muveletek
             $file = fopen("database/felhasznalok.txt", "r");
 
             while (($line = fgets($file)) !== false) {
-                $felhasznalo = unserialize($line);
+                $felhasznalo = unserialize($line);//['allowed_classes' => ['Felhasznalo']]
+                //var_dump(($felhasznalo));
                 $felhasznalok[] = $felhasznalo;
             }
         } catch (Error $error) {
@@ -69,42 +71,35 @@ class Muveletek
     }
     public static function bejelentkezes(&$uzenet)
     {
-        echo("BEJELENTKEZES");
         $nev = $_POST['nev'];
         $jelszo = $_POST['jelszo'];
         $felhasznalok = Muveletek::betolt();
-        //var_dump($felhasznalok);
 
         if (!isset($nev) || trim($nev) === "" || !isset($jelszo) || trim($jelszo) === "") {
             $uzenet = "Információk hiányában nem fognak megismerni a mókusok. A mezőket ki kell tölteni!";
-            echo("$uzenet");
         } else {
-            $uzenet = "!!!!!!!!!!!!!!!!!!Sikertelen belépés";
+            $uzenet = "A belépési adatok nem megfelelőek!"; //Ha nem megy végig a folyamaton, akkor ez lesz az üzenet
             foreach ($felhasznalok as $felhasznalo) {
-                echo("----------------------------------");
-               // var_dump($felhasznalo);
-                echo("teszt:".($felhasznalo instanceof Felhasznalo));
                 if ($felhasznalo instanceof Felhasznalo) {
-                    //echo("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!4");
-                    //echo("$felhasznalo->getNev(), $nev". "  ". "$felhasznalo->getJelszo(), password_verify($jelszo, PASSWORD_DEFAULT)");
-                    if ($felhasznalo->getNev() === $nev && $felhasznalo->getJelszo() === password_verify($jelszo, PASSWORD_DEFAULT)) {
+                    if ($felhasznalo->getNev() === $nev && password_verify($jelszo, $felhasznalo->getJelszo())) {
                         $uzenet = "Sikeres belépés";
 
                         $felhasznaloAdatok = [];
-                        $felhasznaloAdatok['Nev'] = $felhasznalo->getNev();
+                        $felhasznaloAdatok['Név'] = $felhasznalo->getNev();
                         $felhasznaloAdatok['Email'] = $felhasznalo->getEmail();
-                        $felhasznaloAdatok['KepURL'] = $felhasznalo->getProfilKep();
-                        $felhasznaloAdatok['Suti'] = ($felhasznalo->getSuti() ? "Igen" : "Nem");
+                        $felhasznaloAdatok['Üzenet'] = $felhasznalo->getUzenet();
+                        $felhasznaloAdatok['Kedvenc mókus'] = $felhasznalo->getMokusTipus();
+                        $felhasznaloAdatok['Mókusok kedvelése'] = $felhasznalo->getSzint();
+                        $felhasznaloAdatok['KepURL'] = $felhasznalo->getKep();
+                        $felhasznaloAdatok['Süti engedélyezve'] = ($felhasznalo->getSuti() ? "Igen" : "Nem");
 
                         $_SESSION['user'] = $felhasznaloAdatok;
 
-                        /* if (isset($_COOKIE['testcookie'])){
-                             header("Location: profil.php?uzenet=login");
+                        if (isset($_COOKIE['PHPSESSID'])){
+                             header("Location: fiok.php?uzenet=login");
                          } else {
-                             header("Location: profil.php?PHPSESSID=" . session_id());
-                         }*/
-                        // Todo hogyha felhasználónévvel érek a profilhoz, akkor megmutatja az aktuális felhasználót
-                        header("Location: fiok.php?param=login");
+                             header("Location: fiok.php?session=" . session_id());
+                         }
                     }
                 }
             }
