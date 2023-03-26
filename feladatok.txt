@@ -1,5 +1,49 @@
+IMRE:
+-Undorító lapok formázása, hibák és üzenetek is normálisan jelenjenek meg
+-kód formázása (php szakaszok egyesítése, normális beformázás, pl: 30 üres sor sorok... ne legyen behányva...)
+-Űrlapokon a szerveroldali megkötések megfelelő beállítása (hány karakter, kötelező, és ezek megjelenítése)
+
+Ezeket a funckiókat szeretném:
+1.Galéria és fiók:
+A támogatók oldalnál foreach végigszalad az összes felhasználón. Megjeleníti a képeket, mint most, de alá írja a nevüket is.
+A kép ugyan így megnyílik, de a képre kattintásnál kap a felhasználó egy mogyorós sütit.
+A névre kattintva megjelenik a fiók oldal (ide gettel küldjük a nevet). Ilyen esetben nem a saját, hanem a nézegetett
+felhasználó adatai jelennek meg.
+(A sajátján látja azt is, hogy mennyi sütije van, és le tudja törölni magát.)
+
+2.Felhasználó törlése (képpel együtt!)
 
 
+3.Ezek egyszerűek és gyorsak (át is látod, hogy működik az egész):
+-Regisztrációnál egy új checkbox, hogy lehet-e látni az adatait. A fióknál ha más nézegeti, akkor a táblázat ez alapján jelenik meg
+(email, kedvenc mókus, kedvelési szint)
+-felhasználóknál kell még egy jogosultsági szint paraméter (sima felhasználó vagy admin). Lesz egy admin, aki kézzel veszünk fel
+az adatbázis fájlba. Hogyha az admin néz meg egy felhasználót, akkor megjelenik neki a törlés gomb és az elrejtett adatok is.
+Ebben az esetben szerver oldalon is meg kell vizsgálni, hogy admin-e.
+-Felhaszáló tud az adatain és a profilképén változtatni.
+
+********************************************
+FONTOS!
+
+1.Hogyha dolgozol egy lapon, akkor az include headert ki kell venni, mert takarja a hibaüzeneteket!
+
+2.Minden header átadásnál a a $GLOBALS['getParamsot'] is vinni kell tovább, ha van benne valami.
+if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
+                header("Location: regisztracio.php" . $GLOBALS['getParams']);//itt visszük tovább a paramétereket
+            } else {
+                header("Location: bejelentkezes.php?param=reg");
+            }
+********************************************
+
+
+JANI:
+Van egy süti bug. A bejelentkezési névnél nem jól működik.
+
+
+
+
+
+----------------------------------------------------------------
 követelmény az adott input mezőre nézve (pl. a jelszó legalább 8 karakter) ezek nem az űrlap elküldése után (0/3 pont)
 Sütik értelmes módon való használata (0/3 pont)
 
@@ -23,12 +67,7 @@ A felhasználó különböző interakcióba léphet a weboldallal, ennek követk
 • Egyéb, a felsoroltakban nem szereplő, megvalósított funkciók (0/4/8 pont)
 
 
-IMRE:
-undorító lapok formázása, szerveroldali hibák is normálisan jelenjenek meg
-kód formázása (php szakaszok egyesítése, normális beformázás, üres sorok... ne legyen behányva...)
-Űrlapokon a szerveroldali megkötések megfelelő beállítása (hány karakter, kötelező, és ezek megjelenítése)
-támogatók nézegetésénél ha képre kattint kap egy sütit
-fióknál ha saját látja, hogy mennyi sütije van
-Főoldalon "név (x db sütid van)"" köszön vagy defaulttal
-felhasználó törlése képpel együtt
+
+
+
 

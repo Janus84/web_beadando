@@ -19,9 +19,10 @@ class Munkamenet
             session_start();
         }
     }
+
     public static function stopSession()
     {
-        if (isset($_COOKIE['PHPSESSID'])){
+        if (isset($_COOKIE['PHPSESSID'])) {
             setcookie(session_name(), session_id(), time() - 100000, "/");
         }
         session_destroy();
@@ -31,12 +32,14 @@ class Munkamenet
     public static function mogyorosSuti()
     {
         $mogyorosSuti = 1;
-        if (isset($_COOKIE[$_SESSION["user"]['Név']])) {
-            $mogyorosSuti = $_COOKIE[$_SESSION["user"]['Név']] + 1;
-        }
-        setcookie($_SESSION["user"]['Név'], $mogyorosSuti, time() + (60 * 1), "/"); //3 percre süti teszteléshez, hogy mennyire fogy a süti
-        if(isset($_SESSION["user"]['Név'])){
-            setcookie("nev", $_SESSION["user"]['Név'] , time() + (60 * 60 * 24 * 15), "/");
+        if ($_SESSION != null) {
+            if (isset($_COOKIE[$_SESSION["user"]["Név"]])) {
+                $mogyorosSuti = $_COOKIE[$_SESSION["user"]['Név']] + 1;
+            }
+            setcookie($_SESSION["user"]['Név'], $mogyorosSuti, time() + (60 * 1), "/"); //1 percre süti teszteléshez, hogy mennyire fogy a süti
+            if (isset($_SESSION["user"]['Név'])) {
+                setcookie("nev", $_SESSION["user"]['Név'], time() + (60 * 60 * 24 * 15), "/");
+            }
         }
     }
 

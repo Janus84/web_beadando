@@ -15,7 +15,7 @@ Munkamenet::startSession();
 </head>
 <body>
 <?php
-//include_once ('header.php')
+include_once ('header.php')
 ?>
 <?php
 include "controls/Muveletek.php";

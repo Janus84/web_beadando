@@ -85,9 +85,9 @@ include_once ('header.php')
                             echo("</td>");
                         }
                         echo("</tr>");
-                        echo("</tr><td>Sütik száma</td><td>Sütik száma</td>");
-                        //$_COOKIE[$_SESSION["user"]['Név']]
+
                     }
+                    echo("</tr><th>Sütik száma</th><td>".$_COOKIE[$_SESSION['user']['Név']]."</td>");
                     ?>
 
             </tbody>

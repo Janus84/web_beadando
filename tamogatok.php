@@ -22,7 +22,7 @@ include_once ('header.php')
         <?php
         Munkamenet::mogyorosSuti();
         //var_dump($_SESSION["user"]['Név']);
-        if (isset($_SESSION["user"]['Név']) && isset($_COOKIE[$_SESSION["user"]['Név']])) {
+        if (isset($_SESSION["user"]) && isset($_COOKIE[$_SESSION["user"]['Név']])) {
             echo("<p>".$_COOKIE[$_SESSION["user"]['Név']]." db sütid van.</p>");
             echo("<p>Reméljük ízlik a süti, amit a mókusoktól kaptál. Ha többet szeretnél, látogasd a galériánkat vagy nézegesd a támogatókat, ha többet szeretnél.</p>");
         }else{

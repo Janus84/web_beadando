@@ -33,8 +33,9 @@ if(isset($_GET['hiba'])) {
 
     <article>
         <?php
-        if (isset($_SESSION["user"]['Név'])){
-            echo("<h1>Kedves ". $_COOKIE["nev"]."! (". $_COOKIE['user']['Név'].")</h1>");
+        //$_SESSION!=null $$
+        if ( isset($_COOKIE["nev"])){
+            echo("<h1>Kedves ". $_COOKIE["nev"]."</h1>");
         }
         else{
             echo("<h1>Kedves Leendő Támogatónk!</h1>");
