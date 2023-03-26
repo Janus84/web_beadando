@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-include "controls/Cookies.php";
-Cookies::startSession();
+include "controls/Munkamenet.php";
+Munkamenet::startSession();
 ?>
 <html lang="hu">
 <head>
@@ -22,8 +22,25 @@ include_once ('header.php')
 ?>
 
 <main class="content">
+<?php
+if(isset($_GET['hiba'])) {
+    echo("<div class='error'>
+        <p>Súlyos hiba: ".$_GET['hiba'].".</p>
+    </div>");
+    };
+
+?>
+
     <article>
-        <h1>Kedves Támogatónk!</h1> <!-- Ide jön a felhasználónév név-->
+        <?php
+        if (isset($_SESSION["user"]['Név'])){
+            echo("<h1>Kedves ". $_COOKIE["nev"]."! (". $_COOKIE['user']['Név'].")</h1>");
+        }
+        else{
+            echo("<h1>Kedves Leendő Támogatónk!</h1>");
+        }
+        ?>
+
 
         <p class="title_text">Üdvözlünk a mókus oldalon! Ez a lap a mókusok <strong>méltánytalan
             elhanyagoltságának</strong>
@@ -75,7 +92,7 @@ include_once ('header.php')
                 </li>
             </ul>
 
-            <a id="print_hidden" class="support" href="regisztral.php">Segíts a mókusokon és kattints!</a>
+            <a id="print_hidden" class="support" href="regisztracio.php">Segíts a mókusokon és kattints!</a>
         </section>
     </article>
 </main>

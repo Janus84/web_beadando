@@ -4,21 +4,27 @@ include_once "models/Felhasznalo.php";
 
 class Muveletek
 {
-    public static function kiir(Felhasznalo $felhasznalo)
+    public static function felhasznaloFajlba(Felhasznalo $felhasznalo)
     {
         $file = null;
         try {
             $file = fopen("database/felhasznalok.txt", "a");
             fwrite($file, serialize($felhasznalo) . "\n");
-        } catch (Error $hibak) {
-            header("Location: regisztral.php?hibak=" . $hibak->getMessage());
-            //echo("$hibak->getMessage()");
+        } catch (Error $error) {
+            if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
+                header("Location: index.php?hiba=" . $error->getMessage() . $GLOBALS['getParams']);//itt visszük tovább a paramétereket
+            }
+            else{
+                header("Location: index.php?hiba=" . $error->getMessage());
+            }
+
+
         } finally {
             fclose($file);
         }
         return "Sikeres mentés";
     }
-    public static function betolt()
+    public static function felhasznaloFajlbol()
     {
         $felhasznalok = [];
         $file = null;
@@ -27,11 +33,13 @@ class Muveletek
 
             while (($line = fgets($file)) !== false) {
                 $felhasznalo = unserialize($line);//['allowed_classes' => ['Felhasznalo']]
-                //var_dump(($felhasznalo));
                 $felhasznalok[] = $felhasznalo;
             }
         } catch (Error $error) {
-            header("Location: ../index.php?uzenet=" . $error->getMessage());
+            if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
+                header("Location: index.php?hiba=" . $error->getMessage() . $GLOBALS['getParams']);//itt visszük tovább a paramétereket
+            }
+            header("Location: ../index.php?hiba=" . $error->getMessage());
         } finally {
             if ($file != null) {
                 fclose($file);
@@ -73,7 +81,7 @@ class Muveletek
     {
         $nev = $_POST['nev'];
         $jelszo = $_POST['jelszo'];
-        $felhasznalok = Muveletek::betolt();
+        $felhasznalok = Muveletek::felhasznaloFajlbol();
 
         if (!isset($nev) || trim($nev) === "" || !isset($jelszo) || trim($jelszo) === "") {
             $uzenet = "Információk hiányában nem fognak megismerni a mókusok. A mezőket ki kell tölteni!";
@@ -95,11 +103,18 @@ class Muveletek
 
                         $_SESSION['user'] = $felhasznaloAdatok;
 
+                        if ($felhasznalo->getSuti() && !isset($_COOKIE[$felhasznalo->getNev()])){
+                            Munkamenet::mogyorosSuti();
+                        } else {
+                            Munkamenet::sutiTorles();
+                        }
+
                         if (isset($_COOKIE['PHPSESSID'])){
-                             header("Location: fiok.php?uzenet=login");
+                             header("Location: fiok.php?param=login");
                          } else {
-                             header("Location: fiok.php?session=" . session_id());
+                             header("Location: fiok.php?param=login&session=" . session_id()); //innen indítjuk a sessiont, ha nincs süti
                          }
+
                     }
                 }
             }
@@ -107,24 +122,27 @@ class Muveletek
     }
 
 
-
-
-/*
     public static function torol($felhasznalok){
             $file = null;
+            Munkamenet::sutiTorles();
 
             try {
-                $file = fopen("felhasznalok/felhasznalok.txt", "w");
-
+                $file = fopen("database/felhasznalok.txt", "w");
                 foreach ($felhasznalok as $felhasznalo){
-                    fwrite($file, serialize($felhasznalo) . "\n");
+                    //TODO töröljük a felhasználót és a képet majd a bejelentkezésre irányítjuk
+
                 }
             } catch (Error $error){
-                header("Location: ../index?uzenet=" . $error->getMessage() . "torol");
+                if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
+                    header("Location: index.php?hiba=" . $error->getMessage() . $GLOBALS['getParams']);//itt visszük tovább a paramétereket
+                }
+                else{
+                    header("Location: index.php?hiba=" . $error->getMessage());
+                }
             } finally {
                 fclose($file);
             }
-        }*/
+        }
 
 
 

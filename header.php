@@ -17,11 +17,11 @@ $navElemek = [
 ];
 
 // Bejelentkezés alapján megjelenik
-if (isset($_SESSION['nev'])) {
+if (isset($_SESSION['user'])) {
     $navElemek[] = new NavItem("Fiókom","fiok.php" . $qetParams );
     $navElemek[] = new NavItem("Kijelentkezés","kijelentkezes.php" . $qetParams );
 } else {
-    $navElemek[] = new NavItem("Támogató leszek","regisztral.php" . $qetParams);
+    $navElemek[] = new NavItem("Támogató leszek","regisztracio.php" . $qetParams);
     $navElemek[] = new NavItem("Bejelentkezés", "bejelentkezes.php" . $qetParams);
 }
 

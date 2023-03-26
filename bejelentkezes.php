@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-include "controls/Cookies.php";
-Cookies::startSession();
+include "controls/Munkamenet.php";
+Munkamenet::startSession();
 ?>
 <html lang="hu">
 <head>
@@ -15,22 +15,22 @@ Cookies::startSession();
 </head>
 <body>
 <?php
-include_once ('header.php')
+//include_once ('header.php')
 ?>
 <?php
-session_start();
 include "controls/Muveletek.php";
 
 //Hogyha getbe kap paramétert, akkor kiírja miért jött ide. Hogyha postba megkapja a saját űrlapját, akkor belép
 $uzenet = "";
 
-if(!isset($_GET['param'])) {
+
+if(isset($_GET['param'])) {
     if ($_GET['param'] === "tamogatok") {
-        $uzenet = "A támogatók megtekintéséhez be kell jelentkeznie!";
+        $uzenet = "A támogatók megtekintéséhez be kell jelentkezned!";
     } else if ($_GET['param'] === "logout") {
         $uzenet = "Sikeresen kijelentkeztél!";
     } else if ($_GET['param'] === "reg") {
-        $uzenet = "A regisztráció sikeres volt! Kérem jelentkezzen be!";
+        $uzenet = "Támogató lettél! Kérem jelentkezz be!";
     }
 }
 
@@ -41,6 +41,7 @@ if (isset($_POST['submit'])) {
 ?>
 <main class="content">
 
+    <!-- TODO ezt meg kell csinálni-->
     <div>
         <?php if ($uzenet !== ""){
             echo "<p>" . $uzenet . "</p>";

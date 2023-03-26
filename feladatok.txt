@@ -27,4 +27,8 @@ IMRE:
 undorító lapok formázása, szerveroldali hibák is normálisan jelenjenek meg
 kód formázása (php szakaszok egyesítése, normális beformázás, üres sorok... ne legyen behányva...)
 Űrlapokon a szerveroldali megkötések megfelelő beállítása (hány karakter, kötelező, és ezek megjelenítése)
-tamogatok megnyitásánál, ha nincs bejelentkezve, akkor tamogatok uzivel a bejelentkezéshez irányít
+támogatók nézegetésénél ha képre kattint kap egy sütit
+fióknál ha saját látja, hogy mennyi sütije van
+Főoldalon "név (x db sütid van)"" köszön vagy defaulttal
+felhasználó törlése képpel együtt
+

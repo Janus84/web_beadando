@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-include "controls/Cookies.php";
-Cookies::startSession();
+include "controls/Munkamenet.php";
+Munkamenet::startSession();
 ?>
 <html lang="hu">
 <head>
@@ -19,10 +19,19 @@ include_once ('header.php')
 ?>
 <main class="content">
     <div>
-        <!-- Hogyha van süti elfogadás-->
-        <p>Reméljük ízlik a süti, amit kaptál a mókusoktól</p>
-        <p>Örülünk, hogy újra itt vagy. Látjuk, hogy fogytán a sütid, ezért kapsz tőlünk egy kis utánpótlást</p>
-        <p>Rég jártál itt ezért elfogyott a sütid.  De ne aggódj, kapsz egy új adagot.</p>
+        <?php
+        Munkamenet::mogyorosSuti();
+        //var_dump($_SESSION["user"]['Név']);
+        if (isset($_SESSION["user"]['Név']) && isset($_COOKIE[$_SESSION["user"]['Név']])) {
+            echo("<p>".$_COOKIE[$_SESSION["user"]['Név']]." db sütid van.</p>");
+            echo("<p>Reméljük ízlik a süti, amit a mókusoktól kaptál. Ha többet szeretnél, látogasd a galériánkat vagy nézegesd a támogatókat, ha többet szeretnél.</p>");
+        }else{
+            echo("Jajj még nincs sütid? Adunk egyet!");
+        }
+        ?>
+
+
+
     </div>
     <section class="gallery">
 

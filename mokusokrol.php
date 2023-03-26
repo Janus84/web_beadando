@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-include "controls/Cookies.php";
-Cookies::startSession();
+include "controls/Munkamenet.php";
+Munkamenet::startSession();
 ?>
 <html lang="hu">
 <head>

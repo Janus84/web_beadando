@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-include "controls/Cookies.php";
-Cookies::startSession();
+include "controls/Munkamenet.php";
+Munkamenet::startSession();
 ?>
 <html lang="hu">
 <head>
@@ -18,6 +18,7 @@ Cookies::startSession();
 include_once ('header.php')
 ?>
 <main class="content">
+
     <h1>Európai mókusok életmódja</h1>
     <p class="shadowed">Az európai mókusok aktív állatok, és a nap nagy részében a fák között mászkálnak. Az éjszakákat általában fészkeikben töltik, amelyeket a fák üregeiben vagy ágai között építenek fel.</p>
     <figure>

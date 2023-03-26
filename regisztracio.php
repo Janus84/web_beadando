@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
-include "controls/Cookies.php";
-Cookies::startSession();
+include "controls/Munkamenet.php";
+Munkamenet::startSession();
 ?>
 <html lang="hu">
 <head>
@@ -15,20 +15,20 @@ Cookies::startSession();
 </head>
 <body>
 <?php
-include_once ('header.php')
+include_once ('header.php');
 ?>
 
 <?php
 $hibak = [];
 $sikeres = false;
-echo("<p>start</p>");
 if (isset($_POST['submit'])){
-    include "controls/Regisztracio.php";
-    Regisztracio::regisztral($hibak, $sikeres);
+    include "controls/Regisztral.php";
+    Regisztral::elment($hibak, $sikeres);
 }
 ?>
 <main class="content">
 
+    <!-- TODO rendberakni-->
     <div>
     <p>Ide jönnek a hibák:</p>
         <?php
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])){
         ?>
     </div>
 
-    <form action="regisztral.php" method="post" enctype="multipart/form-data" autocomplete="off">
+    <form action="regisztracio.php" method="post" enctype="multipart/form-data" autocomplete="off">
         <fieldset>
             <label for="nev" >Név:</label>
             <input type="text" id="nev" name="nev" placeholder="Felhasználónév" value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>" required>

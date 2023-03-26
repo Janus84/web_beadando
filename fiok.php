@@ -1,7 +1,7 @@
 <!-- TODO Ide jönnek a személyes adatok, vagy más személyes adatai, és a felhasználó törlése (ha saját vagy admin)-->
 <?php
-include "controls/Cookies.php";
-Cookies::startSession();
+include "controls/Munkamenet.php";
+Munkamenet::startSession();
 ?>
 <?php
 
@@ -12,23 +12,19 @@ $felhasznalo = $_SESSION['user'];
 //var_dump($felhasznalo);
 $uzenet = "";
 $param=$_GET['param'];
-if (isset($param) && strlen($param) > 0){
-    if($param === "login"){
+if (isset($param) ){
+    if($param === "login") {
         $uzenet = "<p>Sikeres bejelentkezés!</p>";
     }
-    if($param !== "login"){
-        $uzenet = "<p>Információ a támogatóról:</p>";
-
+    else{
+        Munkamenet::mogyorosSuti();
+        $uzenet = "<p>Kaptál egy mogyorós sütit!</p>";
     }
 }
 
-    //$_GET['param'] = "";
-
-
-
-/*if (isset($_POST['delete'])){
+if (isset($_POST['torles'])){
     DeleteUser::deleteUser();
-}*/
+}
 ?>
 
 <!DOCTYPE html>
@@ -46,11 +42,13 @@ if (isset($param) && strlen($param) > 0){
 <?php
 include_once ('header.php')
 ?>
-<main class="container">
-    <h1>FIOK</h1>
-    <div>
-        <?php echo $uzenet;?>
-    </div>
+<main class="content">
+    <!-- TODO hogyha másik fiók, akkor le kell szedni az adatokat és azt megjeleníteni, meg a cím is a másik felhasználó -->
+    <h1>Felhasználó neve vagy akit nézeget</h1>
+        <?php
+        echo "<div>$uzenet</div>";
+        ?>
+
     <section>
         <div>
             <?php if (isset($felhasznalo['KepURL']) && $felhasznalo['KepURL'] !== "") { ?>
@@ -61,7 +59,7 @@ include_once ('header.php')
         </div>
         <table>
             <tbody>
-<!--            TODO ide kell egy táblázat az adatok listázásával engedélyek alapján-->
+<!--            TODO adatok listázása engedélyek alapján-->
 
                     <?php foreach ($felhasznalo as $adatNeve => $adatTartalma) {
                         echo("<tr>");
@@ -87,20 +85,18 @@ include_once ('header.php')
                             echo("</td>");
                         }
                         echo("</tr>");
+                        echo("</tr><td>Sütik száma</td><td>Sütik száma</td>");
+                        //$_COOKIE[$_SESSION["user"]['Név']]
                     }
-
                     ?>
-
-
-
 
             </tbody>
         </table>
     </section>
     <div>
         <form method="post" action="profil.php" >
-<!--            TODO hogyha admin vagy saját maga-->
-            <input type="submit" name="delete" value="Profil törlése" />
+<!--            TODO csak hogyha admin vagy saját maga-->
+            <input type="submit" name="torles" value="Profil törlése" />
         </form>
     </div>
 </main>

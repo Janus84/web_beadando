@@ -16,6 +16,15 @@ header {
     font-size: 36px;
     text-transform: uppercase;
 }
+.error{
+    background-color: #ffcccc;
+    border: 1px solid darkred;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: darkred;
+}
 .fixed_header {
     display: block;
     top: 0;
@@ -226,7 +235,7 @@ p::first-letter {
         overflow: hidden;
     }
     .content {
-        padding-top: 560px;
+        padding-top: 600px;
         animation-name: opacity1s;
         animation-duration: 1s;
     }
