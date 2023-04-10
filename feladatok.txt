@@ -1,26 +1,26 @@
 IMRE:
--Undorító lapok formázása, hibák és üzenetek is normálisan jelenjenek meg
--kód formázása (php szakaszok egyesítése, normális beformázás, pl: 30 üres sor sorok... ne legyen behányva...)
--Űrlapokon a szerveroldali megkötések megfelelő beállítása (hány karakter, kötelező, és ezek megjelenítése)
+-Undorító lapok formázása, hibák és üzenetek is normálisan jelenjenek meg // TODO
+-kód formázása (php szakaszok egyesítése, normális beformázás, pl: 30 üres sor sorok... ne legyen behányva...) // TODO
+-Űrlapokon a szerveroldali megkötések megfelelő beállítása (hány karakter, kötelező, és ezek megjelenítése) //
 
 Ezeket a funckiókat szeretném:
-1.Galéria és fiók:
+1.Galéria és fiók: // TODO pipa
 A támogatók oldalnál foreach végigszalad az összes felhasználón. Megjeleníti a képeket, mint most, de alá írja a nevüket is.
-A kép ugyan így megnyílik, de a képre kattintásnál kap a felhasználó egy mogyorós sütit.
+A kép ugyan így megnyílik, de a képre kattintásnál kap a felhasználó egy mogyorós sütit. // ezt szerintem még is volt csinálva....
 A névre kattintva megjelenik a fiók oldal (ide gettel küldjük a nevet). Ilyen esetben nem a saját, hanem a nézegetett
 felhasználó adatai jelennek meg.
 (A sajátján látja azt is, hogy mennyi sütije van, és le tudja törölni magát.)
 
-2.Felhasználó törlése (képpel együtt!)
+2.Felhasználó törlése (képpel együtt!) // TODO pipa
 
 
-3.Ezek egyszerűek és gyorsak (át is látod, hogy működik az egész):
+3.Ezek egyszerűek és gyorsak (át is látod, hogy működik az egész): // TODO
 -Regisztrációnál egy új checkbox, hogy lehet-e látni az adatait. A fióknál ha más nézegeti, akkor a táblázat ez alapján jelenik meg
-(email, kedvenc mókus, kedvelési szint)
--felhasználóknál kell még egy jogosultsági szint paraméter (sima felhasználó vagy admin). Lesz egy admin, aki kézzel veszünk fel
-az adatbázis fájlba. Hogyha az admin néz meg egy felhasználót, akkor megjelenik neki a törlés gomb és az elrejtett adatok is.
-Ebben az esetben szerver oldalon is meg kell vizsgálni, hogy admin-e.
--Felhaszáló tud az adatain és a profilképén változtatni.
+(email, kedvenc mókus, kedvelési szint) // TODO pipa
+-felhasználóknál kell még egy jogosultsági szint paraméter (sima felhasználó vagy admin). Lesz egy admin, aki kézzel veszünk fel // TODO pipa
+az adatbázis fájlba. Hogyha az admin néz meg egy felhasználót, akkor megjelenik neki a törlés gomb és az elrejtett adatok is. // TODO pipa
+Ebben az esetben szerver oldalon is meg kell vizsgálni, hogy admin-e. // TODO pipa
+-Felhaszáló tud az adatain és a profilképén változtatni.// TODO
 
 ********************************************
 FONTOS!

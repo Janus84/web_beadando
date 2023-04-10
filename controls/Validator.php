@@ -14,8 +14,8 @@ public
 function nameIsValid(): string
 {
     $nev = $_POST['nev'];
-    if (!isset($nev) || strlen($nev) < 4) {
-        throw new MokusException("A mókusok preferálják, ha a felhasználónév hosszabb mint 4 karakter!");
+    if (!isset($nev) || strlen($nev) < 5) {
+        throw new MokusException("A mókusok preferálják, ha a felhasználónév hosszabb mint 5 karakter!");
     }
     foreach ($this->felhasznalok as $felhasznalo) {
         if ($felhasznalo->getNev() === $nev) {
@@ -45,7 +45,7 @@ function jelszoIsValid(): string
     $jelszo1 = $_POST['jelszo1'];
     $jelszo2 = $_POST['jelszo2'];
 
-    if (!isset($jelszo1) || strlen($jelszo1 <= 6)) {
+    if (!isset($jelszo1) || strlen($jelszo1 <= 8)) {
         throw new MokusException("A mókusok nem elégszenek meg ilyen rövid jelszóval!");
     }
     if ($jelszo1 !== $jelszo2) {

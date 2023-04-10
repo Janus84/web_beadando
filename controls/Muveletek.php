@@ -100,6 +100,9 @@ class Muveletek
                         $felhasznaloAdatok['Mókusok kedvelése'] = $felhasznalo->getSzint();
                         $felhasznaloAdatok['KepURL'] = $felhasznalo->getKep();
                         $felhasznaloAdatok['Süti engedélyezve'] = ($felhasznalo->getSuti() ? "Igen" : "Nem");
+                        $felhasznaloAdatok['Admin'] = ($felhasznalo->getAdmin());
+                        // admin beallitasa
+                        $felhasznaloAdatok['Admin'] = "Igen";
 
                         $_SESSION['user'] = $felhasznaloAdatok;
 
@@ -122,16 +125,34 @@ class Muveletek
     }
 
 
-    public static function torol($felhasznalok){
-            $file = null;
-            Munkamenet::sutiTorles();
+    public static function torol($felhasznalonev){
 
+
+            $felhasznalok = self::felhasznaloFajlbol();
+            $filenullaz =  fopen("database/felhasznalok.txt","w");
+            fclose($filenullaz);
             try {
-                $file = fopen("database/felhasznalok.txt", "w");
-                foreach ($felhasznalok as $felhasznalo){
-                    //TODO töröljük a felhasználót és a képet majd a bejelentkezésre irányítjuk
+                foreach ($felhasznalok as $key => $felh){
+                    if($felh->getNev() === $felhasznalonev){
+                        unset($felhasznalok[$key]);
+                        if($felh->getKep() !== "media/navmokus.jpg"){
+                            unlink($felh->getKep());
+                        }
+                        if(!($_SESSION['user']['Admin'])) {
+                            Munkamenet::sutiTorles();
+                            Munkamenet::stopSession();
+                            setcookie("nev", "", time() - 3600, "/");
+                        }
+                        break;
 
+                    }
                 }
+                foreach ($felhasznalok as $felh){
+                    self::felhasznaloFajlba($felh);
+                }
+
+
+
             } catch (Error $error){
                 if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
                     header("Location: index.php?hiba=" . $error->getMessage() . $GLOBALS['getParams']);//itt visszük tovább a paramétereket
@@ -140,7 +161,7 @@ class Muveletek
                     header("Location: index.php?hiba=" . $error->getMessage());
                 }
             } finally {
-                fclose($file);
+
             }
         }
 

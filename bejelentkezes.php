@@ -23,7 +23,10 @@ include "controls/Muveletek.php";
 //Hogyha getbe kap paramétert, akkor kiírja miért jött ide. Hogyha postba megkapja a saját űrlapját, akkor belép
 $uzenet = "";
 
-
+if(isset($_POST["torles"])) {
+    Muveletek::torol($_POST["torles"]);
+    $uzenet ="Sikeresen törölted fiókodat!";
+}
 if(isset($_GET['param'])) {
     if ($_GET['param'] === "tamogatok") {
         $uzenet = "A támogatók megtekintéséhez be kell jelentkezned!";

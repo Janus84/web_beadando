@@ -25,41 +25,45 @@ if (isset($_POST['submit'])){
     include "controls/Regisztral.php";
     Regisztral::elment($hibak, $sikeres);
 }
+
 ?>
 <main class="content">
 
-    <!-- TODO rendberakni-->
+
     <div>
-    <p>Ide jönnek a hibák:</p>
         <?php
-        if ($sikeres !== true){
-            foreach ($hibak as $hiba) {
-                echo "<p>" . $hiba . "</p>";
+            if (isset($_POST['submit']) && $sikeres){
+                echo ":)Sikeres regisztráció!:)";
             }
-        }
+            else if(isset($_POST['submit'])){
+                echo ":(Sikertelen regisztráció!:(, a hibák: ". "<br>";
+                foreach ($hibak as $hiba) {
+                    echo "<p>" . $hiba . "</p>";
+                }
+            }
         ?>
     </div>
 
     <form action="regisztracio.php" method="post" enctype="multipart/form-data" autocomplete="off">
         <fieldset>
             <label for="nev" >Név:</label>
-            <input type="text" id="nev" name="nev" placeholder="Felhasználónév" value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>" required>
+            <input type="text" id="nev" name="nev" placeholder="Felhasználónév [legalább 5 karakter]" value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>" required>
 
             <label for="email">E-mail cím:</label>
             <input type="email" id="email" name="email" placeholder="tamogato@szeretemamokusokat.hu" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"required>
 
             <label for="jelszo1">Jelszó:</label><br>
-            <input type="password" id="jelszo1" name="jelszo1"><br><br>
+            <input type="password" id="jelszo1" name="jelszo1" placeholder="[min. 8 karakter]"><br><br>
             <label for="jelszo2">Jelszó:</label><br>
-            <input type="password" id="jelszo2" name="jelszo2"><br><br>
+            <input type="password" id="jelszo2" name="jelszo2" placeholder="[egyezzen meg az előzővel]"><br><br>
 
             <label for="uzenet">Itt tudsz kedves dolgokat mondani a mókusoknak:</label>
-            <textarea id="uzenet" name="uzenet" value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>">Itt írok Nektek szépeket vagy leírom mivel támogatnálak Benneteket...</textarea>
+            <textarea id="uzenet" name="uzenet" value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>" placeholder="[a mókusok szeretik a támogatói üzeneteket, de nem sértődnek meg ha nincs!]"></textarea>
 
         </fieldset>
 
         <fieldset>
-            <label for="szint">Mennyire szereted a mókusokat? (1-5)</label>
+            <label for="szint">Mennyire szereted a mókusokat? (1-5), [1-szeretem őket - 5-a világon őket szeretem a legjobban]</label>
             <input type="range" id="szint" name="szint" min="1" max="10" step="1" value="10">
 
             <p>Mi a kedvenc mókusfajtád?</p>
@@ -69,7 +73,11 @@ if (isset($_POST['submit'])){
             <label for="szurke">Szürke mókus</label><br/>
             <input type="radio" id="egyeb" name="mokusTipus" value="egyeb">
             <label for="egyeb">Egyéb mókuskákat szeretek</label>
+
         </fieldset>
+
+        <input type="checkbox" id="adatok" name="adatok">
+        <label for="adatok">Hozzájárulok, hogy más felhasználó láthassa az adataimat</label><br/><br/>
 
         <label for="kep">Ha szeretnéd, hogy a galériában megjelenjen a kedvenc mókusos képed, ide tedd:</label><br/>
         <input type="file" id="kep" name="kep" accept="image/*">
@@ -79,7 +87,6 @@ if (isset($_POST['submit'])){
 
         <input type="checkbox" id="suti" name="suti">
         <label for="suti">Elfogadom a sütit</label>
-
         <div class="float-right">
             <input type="submit" value="Küldés" name="submit">
         </div>

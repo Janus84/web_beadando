@@ -8,8 +8,10 @@ class Felhasznalo {
     private $mokusTipus;
     private $kep;
     private $suti;
+    private $adatok;
+    private $admin;
 
-    public function __construct($nev, $email, $jelszo, $uzenet, $szint, $mokusTipus, $kep, $suti=false) {
+    public function __construct($nev, $email, $jelszo, $uzenet, $szint, $mokusTipus, $kep, $suti=false, $adatok=false) {
         $this->nev = $nev;
         $this->email = $email;
         $this->jelszo = $jelszo;
@@ -18,7 +20,11 @@ class Felhasznalo {
         $this->mokusTipus = $mokusTipus;
         $this->kep = $kep;
         $this->suti = $suti;
+        $this->adatok = $adatok;
+        $this->admin = "Nem";
     }
+
+
 
     /**
      * @return mixed
@@ -147,5 +153,38 @@ class Felhasznalo {
     {
         $this->suti = $suti;
     }
+
+    /**
+     * @return false|mixed
+     */
+    public function getAdatok(): mixed
+    {
+        return $this->adatok;
+    }
+
+    /**
+     * @param false|mixed $adatok
+     */
+    public function setAdatok(mixed $adatok): void
+    {
+        $this->adatok = $adatok;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin): void
+    {
+        $this->admin = $admin;
+    }
+
 
 }

@@ -15,12 +15,21 @@ class Regisztral{
         }
 
         $uzenet= $_POST['uzenet'];
-        $suti=$_POST['suti'];
+        if(isset($_POST['adatok'])){
+            $adatok=$_POST['adatok'];
+        }else{
+            $adatok = false;
+        }
+        if(isset($_POST['suti'])){
+            $suti=$_POST['suti'];
+        }else{
+            $suti = false;
+        }
 
         list($nev, $hibak, $email, $jelszo, $imageURL) = self::validal($validator, $hibak);
 
         if (count($hibak) === 0 ) {
-            $ujSor = new Felhasznalo($nev, $email, $jelszo, $uzenet, "3", "voros", $imageURL, $suti);
+            $ujSor = new Felhasznalo($nev, $email, $jelszo, $uzenet, "3", "voros", $imageURL, $suti, $adatok);
             Muveletek::felhasznaloFajlba( $ujSor);
             $sikeres = true;
         } else {
@@ -51,33 +60,37 @@ class Regisztral{
      */
     public static function validal(Validator $validator, array $hibak): array
     {
+
+        $nev="";
+        $email="";
+        $jelszo="";
+        $imageURL="";
+
         try {
             $nev = $validator->nameIsValid();
-            echo("Nev: $nev");
         } catch (MokusException $exception) {
             $hibak[] = $exception->getMessage();
         }
 
         try {
             $email = $validator->emailIsValid();
-            echo("Email: $email");
         } catch (MokusException $exception) {
             $hibak[] = $exception->getMessage();
         }
 
         try {
             $jelszo = $validator->jelszoIsValid();
-            echo("Jelszo: $jelszo");
         } catch (MokusException $exception) {
             $hibak[] = $exception->getMessage();
         }
 
         try {
             $imageURL = Muveletek::kepMentes($nev);
-            echo("URL: $imageURL");
         } catch (MokusException $exception) {
             $hibak[] = $exception->getMessage();
         }
+
+
         return array($nev, $hibak, $email, $jelszo, $imageURL);
     }
 }

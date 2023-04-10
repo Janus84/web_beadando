@@ -19,15 +19,20 @@ Munkamenet::startSession();
 <body>
 <?php
 include_once ('header.php')
+
+
 ?>
 
 <main class="content">
 <?php
+
+
 if(isset($_GET['hiba'])) {
     echo("<div class='error'>
         <p>Súlyos hiba: ".$_GET['hiba'].".</p>
     </div>");
     };
+
 
 ?>
 

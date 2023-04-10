@@ -15,7 +15,12 @@ Munkamenet::startSession();
 </head>
 <body>
 <?php
-include_once ('header.php')
+include_once ('header.php');
+require ('controls/Muveletek.php');
+if(isset($_POST["torles"])) {
+    Muveletek::torol($_POST["torles"]);
+
+}
 ?>
 <main class="content">
     <div>
@@ -37,6 +42,21 @@ include_once ('header.php')
 
 
         <!-- A támogató neve és képe. Kattintva az adatlap jelenik meg a kép létrehozójának adataival-->
+        <?php
+        require_once 'controls/Muveletek.php';
+        if(isset($_SESSION["user"])) {
+            $felhasznalok = Muveletek::felhasznaloFajlbol();
+            foreach ($felhasznalok as $felhasznalo) {
+                echo '<a href="fiok.php?param=' . $felhasznalo->getNev() . '">';
+                echo '<div class="image">';
+                echo '<img src="' . $felhasznalo->getKep() . '" alt="' . $felhasznalo->getNev() . '" height="200px" width="200px">';
+                echo '<div class="caption">' . $felhasznalo->getNev() . '</div>';
+                echo '</div>';
+                echo '</a>';
+            }
+        }
+        ?>
+
 
         <!--Itt is szól a validátor a h1-6 tegek miatt, de azt írja, hogy divekkel is jó, mégis hibát dob-->
         <div class="image">
