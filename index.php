@@ -18,38 +18,37 @@ Munkamenet::startSession();
 </head>
 <body>
 <?php
-include_once ('header.php')
+include_once('header.php')
 
 
 ?>
 
 <main class="content">
-<?php
+    <?php
 
 
-if(isset($_GET['hiba'])) {
-    echo("<div class='error'>
-        <p>Súlyos hiba: ".$_GET['hiba'].".</p>
+    if (isset($_GET['hiba'])) {
+        echo("<div class='error'>
+        <p>Súlyos hiba: " . $_GET['hiba'] . ".</p>
     </div>");
     };
 
 
-?>
+    ?>
 
     <article>
         <?php
         //$_SESSION!=null $$
-        if ( isset($_COOKIE["nev"])){
-            echo("<h1>Kedves ". $_COOKIE["nev"]."</h1>");
-        }
-        else{
+        if (isset($_COOKIE["nev"])) {
+            echo("<h1>Kedves " . $_COOKIE["nev"] . "</h1>");
+        } else {
             echo("<h1>Kedves Leendő Támogatónk!</h1>");
         }
         ?>
 
 
         <p class="title_text">Üdvözlünk a mókus oldalon! Ez a lap a mókusok <strong>méltánytalan
-            elhanyagoltságának</strong>
+                elhanyagoltságának</strong>
             és <strong>hátrányos megkülönböztetésük</strong> megszűntetéséért jött létre.
         <section>
             <h2>Néhány ok</h2>
@@ -74,7 +73,7 @@ if(isset($_GET['hiba'])) {
                 <br/>
                 Huncut a mókus úgy is fára megy"<br/>
                 <cite><a href="https://www.gyerekdal.hu/dal/mokuska-mokuska" target="_blank">Az idézet
-                    forrása</a></cite>
+                        forrása</a></cite>
             </blockquote>
             <p>A mókusok <em><a href="eletmod.php#elohely">élőhelye</a></em> igen is indokolja a fára mászás
                 szükségességét</p>
@@ -103,7 +102,7 @@ if(isset($_GET['hiba'])) {
     </article>
 </main>
 <?php
-include_once ('footer.php')
+include_once('footer.php')
 ?>
 </body>
 </html>

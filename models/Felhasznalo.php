@@ -1,5 +1,7 @@
 <?php
-class Felhasznalo {
+
+class Felhasznalo
+{
     private $nev;
     private $email;
     private $jelszo;
@@ -11,7 +13,8 @@ class Felhasznalo {
     private $adatok;
     private $admin;
 
-    public function __construct($nev, $email, $jelszo, $uzenet, $szint, $mokusTipus, $kep, $suti=false, $adatok=false) {
+    public function __construct($nev, $email, $jelszo, $uzenet, $szint, $mokusTipus, $kep, $suti = false, $adatok = false)
+    {
         $this->nev = $nev;
         $this->email = $email;
         $this->jelszo = $jelszo;
@@ -23,7 +26,6 @@ class Felhasznalo {
         $this->adatok = $adatok;
         $this->admin = "Nem";
     }
-
 
 
     /**

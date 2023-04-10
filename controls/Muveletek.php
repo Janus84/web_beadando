@@ -13,8 +13,7 @@ class Muveletek
         } catch (Error $error) {
             if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
                 header("Location: index.php?hiba=" . $error->getMessage() . $GLOBALS['getParams']);//itt visszük tovább a paramétereket
-            }
-            else{
+            } else {
                 header("Location: index.php?hiba=" . $error->getMessage());
             }
 
@@ -24,6 +23,7 @@ class Muveletek
         }
         return "Sikeres mentés";
     }
+
     public static function felhasznaloFajlbol()
     {
         $felhasznalok = [];
@@ -47,6 +47,7 @@ class Muveletek
         }
         return $felhasznalok;
     }
+
     public static function kepMentes($nev): string
     {
         $kep = $_FILES['kep'];
@@ -77,6 +78,7 @@ class Muveletek
             return "media/navmokus.jpg";
         }
     }
+
     public static function bejelentkezes(&$uzenet)
     {
         $nev = $_POST['nev'];
@@ -102,21 +104,21 @@ class Muveletek
                         $felhasznaloAdatok['Süti engedélyezve'] = ($felhasznalo->getSuti() ? "Igen" : "Nem");
                         $felhasznaloAdatok['Admin'] = ($felhasznalo->getAdmin());
                         // admin beallitasa
-                        $felhasznaloAdatok['Admin'] = "Igen";
+                        //$felhasznaloAdatok['Admin'] = "Igen";
 
                         $_SESSION['user'] = $felhasznaloAdatok;
 
-                        if ($felhasznalo->getSuti() && !isset($_COOKIE[$felhasznalo->getNev()])){
+                        if ($felhasznalo->getSuti() && !isset($_COOKIE[$felhasznalo->getNev()])) {
                             Munkamenet::mogyorosSuti();
                         } else {
                             Munkamenet::sutiTorles();
                         }
 
-                        if (isset($_COOKIE['PHPSESSID'])){
-                             header("Location: fiok.php?param=login");
-                         } else {
-                             header("Location: fiok.php?param=login&session=" . session_id()); //innen indítjuk a sessiont, ha nincs süti
-                         }
+                        if (isset($_COOKIE['PHPSESSID'])) {
+                            header("Location: fiok.php?param=login");
+                        } else {
+                            header("Location: fiok.php?param=login&session=" . session_id()); //innen indítjuk a sessiont, ha nincs süti
+                        }
 
                     }
                 }
@@ -125,47 +127,44 @@ class Muveletek
     }
 
 
-    public static function torol($felhasznalonev){
+    public static function torol($felhasznalonev)
+    {
 
 
-            $felhasznalok = self::felhasznaloFajlbol();
-            $filenullaz =  fopen("database/felhasznalok.txt","w");
-            fclose($filenullaz);
-            try {
-                foreach ($felhasznalok as $key => $felh){
-                    if($felh->getNev() === $felhasznalonev){
-                        unset($felhasznalok[$key]);
-                        if($felh->getKep() !== "media/navmokus.jpg"){
-                            unlink($felh->getKep());
-                        }
-                        if(!($_SESSION['user']['Admin'])) {
-                            Munkamenet::sutiTorles();
-                            Munkamenet::stopSession();
-                            setcookie("nev", "", time() - 3600, "/");
-                        }
-                        break;
-
+        $felhasznalok = self::felhasznaloFajlbol();
+        $filenullaz = fopen("database/felhasznalok.txt", "w");
+        fclose($filenullaz);
+        try {
+            foreach ($felhasznalok as $key => $felh) {
+                if ($felh->getNev() === $felhasznalonev) {
+                    unset($felhasznalok[$key]);
+                    if ($felh->getKep() !== "media/navmokus.jpg") {
+                        unlink($felh->getKep());
                     }
-                }
-                foreach ($felhasznalok as $felh){
-                    self::felhasznaloFajlba($felh);
-                }
+                    if (!($_SESSION['user']['Admin'])) {
+                        Munkamenet::sutiTorles();
+                        Munkamenet::stopSession();
+                        setcookie("nev", "", time() - 3600, "/");
+                    }
+                    break;
 
-
-
-            } catch (Error $error){
-                if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
-                    header("Location: index.php?hiba=" . $error->getMessage() . $GLOBALS['getParams']);//itt visszük tovább a paramétereket
                 }
-                else{
-                    header("Location: index.php?hiba=" . $error->getMessage());
-                }
-            } finally {
-
             }
+            foreach ($felhasznalok as $felh) {
+                self::felhasznaloFajlba($felh);
+            }
+
+
+        } catch (Error $error) {
+            if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
+                header("Location: index.php?hiba=" . $error->getMessage() . $GLOBALS['getParams']);//itt visszük tovább a paramétereket
+            } else {
+                header("Location: index.php?hiba=" . $error->getMessage());
+            }
+        } finally {
+
         }
-
-
-
-
     }
+
+
+}

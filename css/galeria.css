@@ -3,9 +3,11 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .image {
     margin: 10px;
 }
+
 .image img {
     max-height: 300px;
     height: 200px;
@@ -13,6 +15,7 @@
     transition: all 0.3s ease;
     caption-side: bottom;
 }
+
 .image a:hover img {
     transform: scale(1.1);
 }

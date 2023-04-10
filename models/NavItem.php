@@ -1,11 +1,14 @@
 <?php
+
 class NavItem
 {
     private $nev;
     private $link;
+
     //private $permission;
 
-    public function __construct($nev, $link) {
+    public function __construct($nev, $link)
+    {
         $this->nev = $nev;
         $this->link = $link;
         //$this->permission = $permission;

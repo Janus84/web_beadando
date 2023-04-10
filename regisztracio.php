@@ -15,13 +15,13 @@ Munkamenet::startSession();
 </head>
 <body>
 <?php
-include_once ('header.php');
+include_once('header.php');
 ?>
 
 <?php
 $hibak = [];
 $sikeres = false;
-if (isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     include "controls/Regisztral.php";
     Regisztral::elment($hibak, $sikeres);
 }
@@ -32,25 +32,26 @@ if (isset($_POST['submit'])){
 
     <div>
         <?php
-            if (isset($_POST['submit']) && $sikeres){
-                echo ":)Sikeres regisztráció!:)";
+        if (isset($_POST['submit']) && $sikeres) {
+            echo ":)Sikeres regisztráció!:)";
+        } else if (isset($_POST['submit'])) {
+            echo ":(Sikertelen regisztráció!:(, a hibák: " . "<br>";
+            foreach ($hibak as $hiba) {
+                echo "<p>" . $hiba . "</p>";
             }
-            else if(isset($_POST['submit'])){
-                echo ":(Sikertelen regisztráció!:(, a hibák: ". "<br>";
-                foreach ($hibak as $hiba) {
-                    echo "<p>" . $hiba . "</p>";
-                }
-            }
+        }
         ?>
     </div>
 
     <form action="regisztracio.php" method="post" enctype="multipart/form-data" autocomplete="off">
         <fieldset>
-            <label for="nev" >Név:</label>
-            <input type="text" id="nev" name="nev" placeholder="Felhasználónév [legalább 5 karakter]" value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>" required>
+            <label for="nev">Név:</label>
+            <input type="text" id="nev" name="nev" placeholder="Felhasználónév [legalább 5 karakter]"
+                   value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>" required>
 
             <label for="email">E-mail cím:</label>
-            <input type="email" id="email" name="email" placeholder="tamogato@szeretemamokusokat.hu" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"required>
+            <input type="email" id="email" name="email" placeholder="tamogato@szeretemamokusokat.hu"
+                   value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" required>
 
             <label for="jelszo1">Jelszó:</label><br>
             <input type="password" id="jelszo1" name="jelszo1" placeholder="[min. 8 karakter]"><br><br>
@@ -58,12 +59,14 @@ if (isset($_POST['submit'])){
             <input type="password" id="jelszo2" name="jelszo2" placeholder="[egyezzen meg az előzővel]"><br><br>
 
             <label for="uzenet">Itt tudsz kedves dolgokat mondani a mókusoknak:</label>
-            <textarea id="uzenet" name="uzenet" value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>" placeholder="[a mókusok szeretik a támogatói üzeneteket, de nem sértődnek meg ha nincs!]"></textarea>
+            <textarea id="uzenet" name="uzenet" value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>"
+                      placeholder="[a mókusok szeretik a támogatói üzeneteket, de nem sértődnek meg ha nincs!]"></textarea>
 
         </fieldset>
 
         <fieldset>
-            <label for="szint">Mennyire szereted a mókusokat? (1-5), [1-szeretem őket - 5-a világon őket szeretem a legjobban]</label>
+            <label for="szint">Mennyire szereted a mókusokat? (1-5), [1-szeretem őket - 5-a világon őket szeretem a
+                legjobban]</label>
             <input type="range" id="szint" name="szint" min="1" max="10" step="1" value="10">
 
             <p>Mi a kedvenc mókusfajtád?</p>
@@ -95,11 +98,11 @@ if (isset($_POST['submit'])){
         </div>
     </form>
 
-        <p>Köszönjük hogy a mókusokra szánta idejét!</p>
+    <p>Köszönjük hogy a mókusokra szánta idejét!</p>
 
 </main>
 <?php
-include_once ('footer.php')
+include_once('footer.php')
 ?>
 </body>
 </html>

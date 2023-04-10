@@ -14,7 +14,7 @@ felhasználó adatai jelennek meg.
 2.Felhasználó törlése (képpel együtt!) // TODO pipa
 
 
-3.Ezek egyszerűek és gyorsak (át is látod, hogy működik az egész): // TODO
+3.Ezek egyszerűek és gyorsak (át is látod, hogy működik az egész): // TODO pipa
 -Regisztrációnál egy új checkbox, hogy lehet-e látni az adatait. A fióknál ha más nézegeti, akkor a táblázat ez alapján jelenik meg
 (email, kedvenc mókus, kedvelési szint) // TODO pipa
 -felhasználóknál kell még egy jogosultsági szint paraméter (sima felhasználó vagy admin). Lesz egy admin, aki kézzel veszünk fel // TODO pipa

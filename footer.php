@@ -1,5 +1,5 @@
 <?php
-echo'<footer>
+echo '<footer>
     © 2023 Mókus oldal
 </footer>';
 ?>

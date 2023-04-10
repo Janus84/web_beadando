@@ -4,6 +4,7 @@ body {
     min-width: 200px;
     margin-top: 0;
 }
+
 header {
     background-color: #6B4D32;
     padding: 20px;
@@ -11,12 +12,14 @@ header {
     color: #FFF;
     z-index: 100;
 }
-#title{
+
+#title {
     margin: 15px 0 0;
     font-size: 36px;
     text-transform: uppercase;
 }
-.error{
+
+.error {
     background-color: #ffcccc;
     border: 1px solid darkred;
     padding: 10px;
@@ -25,6 +28,7 @@ header {
     font-weight: bold;
     color: darkred;
 }
+
 .fixed_header {
     display: block;
     top: 0;
@@ -33,6 +37,7 @@ header {
     width: 100%;
     padding: 0;
 }
+
 footer {
     background-color: #6B4D32;
     padding: 20px;
@@ -40,23 +45,28 @@ footer {
     color: #FFF;
     font-size: 14px;
 }
+
 nav {
     background-color: #996633;
     padding: 10px;
     margin: 0;
 }
+
 .navbar {
     margin-top: 10px;
 }
+
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
+
 nav li {
     float: left;
 }
+
 nav li a {
     display: block;
     color: #FFF;
@@ -64,12 +74,14 @@ nav li a {
     padding: 14px 16px;
     text-decoration: none;
 }
+
 nav li a:hover {
     background-color: #714825;
     border-radius: 20px;
     animation-name: animateNav;
     animation-duration: 1s;
 }
+
 @keyframes animateNav {
     from {
         background-color: #996633;
@@ -78,15 +90,18 @@ nav li a:hover {
         background-color: #714825;
     }
 }
+
 main {
     padding: 20px;
     display: block;
 }
+
 .content {
     padding-top: 330px;
     animation-name: opacity1s;
     animation-duration: 1s;
 }
+
 @keyframes opacity1s {
     from {
         opacity: 0;
@@ -95,16 +110,19 @@ main {
         opacity: 1;
     }
 }
+
 .gif {
     float: right;
     margin-left: 10px;
     transform: rotate(5deg);
 }
+
 #logo {
     display: inline;
     margin-top: 10px;
     /*overflow: hidden;*/
 }
+
 h1 {
     margin: 15px 0 0;
     font-size: 36px;
@@ -112,6 +130,7 @@ h1 {
     animation-name: animateTitle;
     animation-duration: 1s;
 }
+
 @keyframes animateTitle {
     0% {
         margin: 15px 0 0;
@@ -123,22 +142,26 @@ h1 {
         margin: 15px 0 0;
     }
 }
+
 h2 {
     margin: 30px 0 0;
     font-size: 25px;
     text-transform: uppercase;
 }
+
 .h2small {
     /*margin: 0;*/
     margin-top: 30px;
     font-size: 22px;
     text-transform: none;
 }
+
 h3 {
     margin: 20px 0 0;
     font-size: 20px;
     /*text-transform: uppercase;*/
 }
+
 table {
     border-collapse: collapse;
     /*margin: 20px;*/
@@ -147,32 +170,40 @@ table {
     max-width: 800px;
     background-color: #FFFFFF;
 }
+
 th, td {
     padding: 10px;
     text-align: left;
     border: 1px solid #714825FF;
 }
+
 th {
     background-color: #6B4D32FF;
     color: #FFFFFF;
     font-weight: bold;
 }
-.szamla{
+
+.szamla {
     position: relative;
     left: 50px;
 }
+
 mark {
     background-color: #a68466;
 }
+
 i {
     font-size: 14px;
 }
+
 a {
     color: #714825;
 }
+
 a:visited {
     #color: #6B4D32;
 }
+
 a.support {
     color: #714825;
     display: block;
@@ -183,30 +214,37 @@ a.support {
     text-transform: uppercase;
     font-size: 30px;
 }
+
 a.support:hover {
     background-color: #714825;
     color: #E2D8B8;
 }
+
 .title_text {
     font-size: 20px;
     text-shadow: 2px 5px 5px sandybrown;
 }
+
 .selected {
     background-color: #6B4D32;
     border-radius: 20px;
 }
+
 .center {
     display: block;
     margin: auto;
     text-align: center;
 }
+
 .skew {
     transform: skewX(3deg);
     margin: auto;
 }
+
 .shadowed {
     text-shadow: 2px 5px 5px sandybrown;
 }
+
 #absolute {
     font-size: 10px;
     text-shadow: 3px 6px 6px darksalmon;
@@ -220,10 +258,12 @@ a.support:hover {
 p::selection {
     background-color: salmon;
 }
+
 p::first-letter {
     font-size: 130%;
     color: #6B4D32;
 }
+
 #relative::after {
     content: " Esküszünk!"
 }
@@ -234,17 +274,20 @@ p::first-letter {
     nav {
         overflow: hidden;
     }
+
     .content {
         padding-top: 600px;
         animation-name: opacity1s;
         animation-duration: 1s;
     }
+
     /* Az elemek teljes szélességet elfoglalják, és középre igazítottakk */
     nav li {
         width: 100%;
         display: block;
         text-align: center;
     }
+
     #logo {
         max-width: 100%;
         height: auto;

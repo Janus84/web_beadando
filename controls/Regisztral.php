@@ -4,33 +4,35 @@ include "models/Felhasznalo.php";
 include "Muveletek.php";
 include_once "exceptions/MokusException.php";
 include_once "controls/Munkamenet.php";
-class Regisztral{
-    public static function elment(&$hibak, &$sikeres){
 
-        try{
+class Regisztral
+{
+    public static function elment(&$hibak, &$sikeres)
+    {
+
+        try {
             $validator = new Validator();
-        }
-        catch (Exception $exception){
+        } catch (Exception $exception) {
             $hibak[] = "A felhasználók adatbázisa nem töltődött be, mert: $exception";
         }
 
-        $uzenet= $_POST['uzenet'];
-        if(isset($_POST['adatok'])){
-            $adatok=$_POST['adatok'];
-        }else{
+        $uzenet = $_POST['uzenet'];
+        if (isset($_POST['adatok'])) {
+            $adatok = $_POST['adatok'];
+        } else {
             $adatok = false;
         }
-        if(isset($_POST['suti'])){
-            $suti=$_POST['suti'];
-        }else{
+        if (isset($_POST['suti'])) {
+            $suti = $_POST['suti'];
+        } else {
             $suti = false;
         }
 
         list($nev, $hibak, $email, $jelszo, $imageURL) = self::validal($validator, $hibak);
 
-        if (count($hibak) === 0 ) {
+        if (count($hibak) === 0) {
             $ujSor = new Felhasznalo($nev, $email, $jelszo, $uzenet, "3", "voros", $imageURL, $suti, $adatok);
-            Muveletek::felhasznaloFajlba( $ujSor);
+            Muveletek::felhasznaloFajlba($ujSor);
             $sikeres = true;
         } else {
             $sikeres = false;
@@ -38,11 +40,10 @@ class Regisztral{
 
         if ($sikeres === true) {
             //ha van süti engedélyezés, akkor bejegyezzük
-            if($suti){
+            if ($suti) {
                 echo("<h1>MOGYORÓSSÜTI BEJEGYZÉSE</h1>");
                 Munkamenet::mogyorosSuti();
-            }
-            else{
+            } else {
                 Munkamenet::sutiTorles();
             }
             if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
@@ -61,10 +62,10 @@ class Regisztral{
     public static function validal(Validator $validator, array $hibak): array
     {
 
-        $nev="";
-        $email="";
-        $jelszo="";
-        $imageURL="";
+        $nev = "";
+        $email = "";
+        $jelszo = "";
+        $imageURL = "";
 
         try {
             $nev = $validator->nameIsValid();

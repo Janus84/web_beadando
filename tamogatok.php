@@ -15,9 +15,9 @@ Munkamenet::startSession();
 </head>
 <body>
 <?php
-include_once ('header.php');
-require ('controls/Muveletek.php');
-if(isset($_POST["torles"])) {
+include_once('header.php');
+require('controls/Muveletek.php');
+if (isset($_POST["torles"])) {
     Muveletek::torol($_POST["torles"]);
 
 }
@@ -28,13 +28,12 @@ if(isset($_POST["torles"])) {
         Munkamenet::mogyorosSuti();
         //var_dump($_SESSION["user"]['Név']);
         if (isset($_SESSION["user"]) && isset($_COOKIE[$_SESSION["user"]['Név']])) {
-            echo("<p>".$_COOKIE[$_SESSION["user"]['Név']]." db sütid van.</p>");
+            echo("<p>" . $_COOKIE[$_SESSION["user"]['Név']] . " db sütid van.</p>");
             echo("<p>Reméljük ízlik a süti, amit a mókusoktól kaptál. Ha többet szeretnél, látogasd a galériánkat vagy nézegesd a támogatókat, ha többet szeretnél.</p>");
-        }else{
+        } else {
             echo("Jajj még nincs sütid? Adunk egyet!");
         }
         ?>
-
 
 
     </div>
@@ -44,7 +43,7 @@ if(isset($_POST["torles"])) {
         <!-- A támogató neve és képe. Kattintva az adatlap jelenik meg a kép létrehozójának adataival-->
         <?php
         require_once 'controls/Muveletek.php';
-        if(isset($_SESSION["user"])) {
+        if (isset($_SESSION["user"])) {
             $felhasznalok = Muveletek::felhasznaloFajlbol();
             foreach ($felhasznalok as $felhasznalo) {
                 echo '<a href="fiok.php?param=' . $felhasznalo->getNev() . '">';
@@ -76,14 +75,14 @@ if(isset($_POST["torles"])) {
         </div>
     </section>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navbar = document.querySelector('.navbar');
             navbar.classList.add('show');
         });
     </script>
 </main>
 <?php
-include_once ('footer.php')
+include_once('footer.php')
 ?>
 </body>
 </html>

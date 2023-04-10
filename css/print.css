@@ -2,44 +2,57 @@
     p {
         font-size: 14pt;
     }
+
     nav {
         display: none;
     }
-    footer{
+
+    footer {
         display: none;
     }
+
     h1, h2 {
         page-break-after: avoid;
     }
-    .fixed_header{
+
+    .fixed_header {
         display: none;
     }
+
     audio {
         display: none;
     }
-    video{
+
+    video {
         display: none;
     }
-    head{
+
+    head {
         display: none;
     }
-    header{
+
+    header {
         display: none;
     }
+
     .content {
         padding-top: 10px;
     }
+
     .support {
         display: none;
     }
+
     .gif {
         transform: rotate(0deg);
     }
-    #print_hidden{
+
+    #print_hidden {
         display: none;
     }
 }
-@page  {
+
+@page {
     margin: 1cm;
     padding-top: 1cm;
 }
