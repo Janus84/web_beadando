@@ -55,6 +55,9 @@ class Regisztral
                 header("Location: bejelentkezes.php?param=reg");
             }
         }
+        if ($sikeres === false){
+            unlink($imageURL);
+        }
     }
 
     /**
