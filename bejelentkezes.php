@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
     </div>
 
     <form action="bejelentkezes.php" method="post" enctype="multipart/form-data" autocomplete="off">
-        <fieldset>
+        <fieldset style="height: 200px;">
             <label for="nev">Név:</label>
             <input type="text" id="nev" name="nev" placeholder="Felhasználónév"
                    value="<?php if (isset($_POST['nev'])) echo $_POST['nev']; ?>" required>

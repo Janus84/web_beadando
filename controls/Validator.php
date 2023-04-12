@@ -52,28 +52,5 @@ class Validator
             throw new MokusException("A mókusok szerint ez a két jelszó nem egyezik!");
         } else return password_hash($jelszo1, PASSWORD_DEFAULT);
     }
-
-    /*
-        function savePic($path, Felhasznalo $felhasznalo): bool{
-            if (isset($_FILES['kep'])){
-
-                $kiterjesztesek = ["png", "jpg", "jpeg"];
-                $kiterjesztes = strtolower(pathinfo($_FILES['kep']['name'], PATHINFO_EXTENSION));
-                if(in_array($kiterjesztes, $kiterjesztesek)){
-                    if (isset($_POST['nev'])){
-                        $cel = $path . $_POST['nev'] . "." . strtolower(pathinfo($_FILES['kep']['name'], PATHINFO_EXTENSION));
-                    } else {
-                        $cel = $path. $_FILES['kep']['name'];
-                    }
-                    if (move_uploaded_file($_FILES['kep']['tmp_name'], $cel)){
-                        $felhasznalo->setProfilKep($cel);
-                    } else {
-                        throw new BeviteliAdatokException("A kép mentése nem sikerült");
-                    }
-                } else {
-                    return false;
-                }
-            }
-            return true;
-        }*/
+    
 }

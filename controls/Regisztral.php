@@ -16,7 +16,10 @@ class Regisztral
             $hibak[] = "A felhasználók adatbázisa nem töltődött be, mert: $exception";
         }
 
+        $szint = $_POST['szint'];
+        $tipus = $_POST['mokusTipus'];
         $uzenet = $_POST['uzenet'];
+
         if (isset($_POST['adatok'])) {
             $adatok = $_POST['adatok'];
         } else {
@@ -31,7 +34,7 @@ class Regisztral
         list($nev, $hibak, $email, $jelszo, $imageURL) = self::validal($validator, $hibak);
 
         if (count($hibak) === 0) {
-            $ujSor = new Felhasznalo($nev, $email, $jelszo, $uzenet, "3", "voros", $imageURL, $suti, $adatok);
+            $ujSor = new Felhasznalo($nev, $email, $jelszo, $uzenet, $szint, $tipus, $imageURL, $suti, $adatok);
             Muveletek::felhasznaloFajlba($ujSor);
             $sikeres = true;
         } else {
@@ -41,7 +44,7 @@ class Regisztral
         if ($sikeres === true) {
             //ha van süti engedélyezés, akkor bejegyezzük
             if ($suti) {
-                echo("<h1>MOGYORÓSSÜTI BEJEGYZÉSE</h1>");
+//                echo("<h1>MOGYORÓSSÜTI BEJEGYZÉSE</h1>");
                 Munkamenet::mogyorosSuti();
             } else {
                 Munkamenet::sutiTorles();

@@ -13,9 +13,13 @@
     height: 200px;
     width: auto;
     transition: all 0.3s ease;
-    caption-side: bottom;
+    /*caption-side: bottom;*/
+}
+.caption{
+    margin:10px;
 }
 
 .image a:hover img {
     transform: scale(1.1);
 }
+

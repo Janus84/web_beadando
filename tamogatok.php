@@ -25,16 +25,15 @@ if (isset($_POST["torles"])) {
 <main class="content">
     <div>
         <?php
-        Munkamenet::mogyorosSuti();
         //var_dump($_SESSION["user"]['Név']);
         if (isset($_SESSION["user"]) && isset($_COOKIE[$_SESSION["user"]['Név']])) {
+            Munkamenet::mogyorosSuti();
             echo("<p>" . $_COOKIE[$_SESSION["user"]['Név']] . " db sütid van.</p>");
             echo("<p>Reméljük ízlik a süti, amit a mókusoktól kaptál. Ha többet szeretnél, látogasd a galériánkat vagy nézegesd a támogatókat, ha többet szeretnél.</p>");
         } else {
-            echo("Jajj még nincs sütid? Adunk egyet!");
+            echo("Jajj még nincs sütid? Adunk egyet, csak jelentkezz be és nézelődj!");
         }
         ?>
-
 
     </div>
     <section class="gallery">
@@ -45,14 +44,27 @@ if (isset($_POST["torles"])) {
         require_once 'controls/Muveletek.php';
         if (isset($_SESSION["user"])) {
             $felhasznalok = Muveletek::felhasznaloFajlbol();
+//            foreach ($felhasznalok as $felhasznalo) {
+//                echo '<a href="fiok.php?param=' . $felhasznalo->getNev() . '">';
+//                echo '<div class="image">';
+//                echo '<img src="' . $felhasznalo->getKep() . '" alt="' . $felhasznalo->getNev() . '">';
+////                height="200px" width="200px"
+//                echo '<div class="caption">' . $felhasznalo->getNev() . '</div>';
+//                echo '</div>';
+//                echo '</a>';
+//            }
+
+//            echo '<div class="image">';
             foreach ($felhasznalok as $felhasznalo) {
-                echo '<a href="fiok.php?param=' . $felhasznalo->getNev() . '">';
                 echo '<div class="image">';
-                echo '<img src="' . $felhasznalo->getKep() . '" alt="' . $felhasznalo->getNev() . '" height="200px" width="200px">';
+                echo '<a href="fiok.php?param=' . $felhasznalo->getNev() . '">';
+
+                echo '<img src="' . $felhasznalo->getKep() . '" alt="' . $felhasznalo->getNev() . '">';
+//                height="200px" width="200px"
                 echo '<div class="caption">' . $felhasznalo->getNev() . '</div>';
                 echo '</div>';
-                echo '</a>';
             }
+//            echo '</div>';
         }
         ?>
 
@@ -74,12 +86,7 @@ if (isset($_POST["torles"])) {
             </a>
         </div>
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.add('show');
-        });
-    </script>
+
 </main>
 <?php
 include_once('footer.php')

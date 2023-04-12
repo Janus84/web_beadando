@@ -148,7 +148,23 @@ include_once('header.php')
                 echo("</tr>");
                 echo("<tr>");
                 echo('<th>Kedvenc Mókus</th>');
-                echo('<td>' . $felhasznalo->getMokusTipus() . '</td>');
+//                echo('<td>' . $felhasznalo->getMokusTipus() . '</td>');
+
+                echo('<td>');
+                switch ($felhasznalo->getMokusTipus()) {
+                    case "voros":
+                        echo("vörös mókuskák (ők a legaranyosabbak)");
+                        break;
+                    case "szurke":
+                        echo("szürke mókuskák (ők gyorsak)");
+                        break;
+                    case "egyeb":
+                        echo("egyéb mókusok (egyesek még repülni is tudnak)");
+                        break;
+                }
+                echo('</td>');
+
+
                 echo("</tr>");
                 echo("<tr>");
                 echo('<th>Mókusok kedvelése</th>');

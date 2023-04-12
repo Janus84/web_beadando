@@ -129,8 +129,6 @@ class Muveletek
 
     public static function torol($felhasznalonev)
     {
-
-
         $felhasznalok = self::felhasznaloFajlbol();
         $filenullaz = fopen("database/felhasznalok.txt", "w");
         fclose($filenullaz);
@@ -147,13 +145,16 @@ class Muveletek
                         setcookie("nev", "", time() - 3600, "/");
                     }
                     break;
-
                 }
             }
             foreach ($felhasznalok as $felh) {
                 self::felhasznaloFajlba($felh);
             }
-
+            if (isset($_COOKIE['PHPSESSID'])) {
+                header("Location: kijelentkezes.php");
+            } else {
+                header("Location: kijelentkezes.php&session=" . session_id()); //innen indítjuk a sessiont, ha nincs süti
+            }
 
         } catch (Error $error) {
             if (isset($GLOBALS['getParams']) && $GLOBALS['getParams'] !== "") {
