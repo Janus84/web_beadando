@@ -29,7 +29,7 @@ if (isset($_POST["torles"])) {
         if (isset($_SESSION["user"]) && isset($_COOKIE[$_SESSION["user"]['Név']])) {
             Munkamenet::mogyorosSuti();
             echo("<p>" . $_COOKIE[$_SESSION["user"]['Név']] . " db sütid van.</p>");
-            echo("<p>Reméljük ízlik a süti, amit a mókusoktól kaptál. Ha többet szeretnél, látogasd a galériánkat vagy nézegesd a támogatókat, ha többet szeretnél.</p>");
+            echo("<p>Reméljük ízlik a süti, amit a mókusoktól kaptál. Ha többet szeretnél, nézegesd a képeinket és támogatóinkat.</p>");
         } else {
             echo("Jajj még nincs sütid? Adunk egyet, csak jelentkezz be és nézelődj!");
         }
@@ -44,24 +44,13 @@ if (isset($_POST["torles"])) {
         require_once 'controls/Muveletek.php';
         if (isset($_SESSION["user"])) {
             $felhasznalok = Muveletek::felhasznaloFajlbol();
-//            foreach ($felhasznalok as $felhasznalo) {
-//                echo '<a href="fiok.php?param=' . $felhasznalo->getNev() . '">';
-//                echo '<div class="image">';
-//                echo '<img src="' . $felhasznalo->getKep() . '" alt="' . $felhasznalo->getNev() . '">';
-////                height="200px" width="200px"
-//                echo '<div class="caption">' . $felhasznalo->getNev() . '</div>';
-//                echo '</div>';
-//                echo '</a>';
-//            }
 
-//            echo '<div class="image">';
             foreach ($felhasznalok as $felhasznalo) {
                 echo '<div class="image">';
-                echo '<a href="fiok.php?param=' . $felhasznalo->getNev() . '">';
-
-                echo '<img src="' . $felhasznalo->getKep() . '" alt="' . $felhasznalo->getNev() . '">';
-//                height="200px" width="200px"
-                echo '<div class="caption">' . $felhasznalo->getNev() . '</div>';
+                echo '<a href="'.$felhasznalo->getKep().'">';
+                echo '<img src="' . $felhasznalo->getKep() . '" alt="' . $felhasznalo->getNev() . '"></a>';
+//                echo '<div class="caption">' . $felhasznalo->getNev() . '</div>';
+                echo '<div class="caption"><a href="fiok.php?param='.  $felhasznalo->getNev() . '">' . $felhasznalo->getNev() .'</a></div>';
                 echo '</div>';
             }
 //            echo '</div>';

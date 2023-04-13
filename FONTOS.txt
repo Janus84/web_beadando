@@ -1,6 +1,0 @@
-ha admin akarsz lenni:
-
-Controls/Muveletek.php
-
-105.sor: // admin beallitasa
- komment kivétele->>>    //$felhasznaloAdatok['Admin'] = "Igen";

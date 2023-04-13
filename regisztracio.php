@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
         <hr/>
         <p> A Mókusok az adományozóknak szeretnek mogyorós finomságokkal kedveskedni</p>
 
-        <input type="checkbox" id="suti" name="suti">
+        <input type="checkbox" id="suti" name="suti" checked="checked">
         <label for="suti">Elfogadom a sütit</label>
         <div class="float-right">
             <input type="submit" value="Küldés" name="submit">
